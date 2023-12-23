@@ -1,0 +1,85 @@
+{
+  "name": "resume-template",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/resume-template/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/resume-template",
+        "index": "apps/resume-template/src/index.html",
+        "baseHref": "/",
+        "main": "apps/resume-template/src/main.tsx",
+        "tsConfig": "apps/resume-template/tsconfig.app.json",
+        "assets": [
+          "apps/resume-template/src/favicon.ico",
+          "apps/resume-template/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "apps/resume-template/webpack.config.js"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/resume-template/src/environments/environment.ts",
+              "with": "apps/resume-template/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/webpack:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "resume-template:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "resume-template:build:development"
+        },
+        "production": {
+          "buildTarget": "resume-template:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "resume-template:build"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/resume-template/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}
