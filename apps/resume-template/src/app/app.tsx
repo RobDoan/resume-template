@@ -1,5 +1,6 @@
 import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 import { Layout } from './components/page-layout';
+import AnimatedBackground from './components/animated-backgroud/animated-background';
 
 export function App() {
   // Use default theme`
@@ -7,8 +8,10 @@ export function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Layout>
-      </Layout>
+      <AnimatedBackground />
+      {/* <Layout>
+        ASDKJSLAKDJ
+      </Layout> */}
     </ThemeProvider>
   );
 }

@@ -4,10 +4,11 @@ import { FC, PropsWithChildren } from 'react';
 const PageContainer = styled(Container)(({ theme }) => ({
   width: "100vw",
   height: "100vh",
-  background: "linear-gradient(to bottom right, #50a3a2 0%, #78cc6d 100%)",
+  backgroundColor: 'transparent',
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  position: "fixed",
 }));
 
 const AppContainer = styled(Container)(({ theme }) => ({
@@ -19,7 +20,7 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <PageContainer maxWidth="xl">
       <AppContainer maxWidth="md">
-          APP
+          {children}
       </AppContainer>
     </PageContainer>
   );
