@@ -1,16 +1,15 @@
-import styled from '@emotion/styled';
-
-import NxWelcome from './nx-welcome';
-
-const StyledApp = styled.div`
-  // Your style here
-`;
+import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import { Layout } from './components/page-layout';
 
 export function App() {
+  // Use default theme`
+  const theme = createTheme({});
   return (
-    <StyledApp>
-      <NxWelcome title="resume-template" />
-    </StyledApp>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Layout>
+      </Layout>
+    </ThemeProvider>
   );
 }
 
