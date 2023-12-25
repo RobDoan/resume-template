@@ -9,9 +9,9 @@ export function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AnimatedBackground />
-      {/* <Layout>
+      <Layout>
         ASDKJSLAKDJ
-      </Layout> */}
+      </Layout>
     </ThemeProvider>
   );
 }
