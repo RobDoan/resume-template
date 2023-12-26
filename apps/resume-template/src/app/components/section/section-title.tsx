@@ -5,6 +5,7 @@ const TitleWrapper = styled(Box)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   flexDirection: 'row',
+  paddingBottom: theme.spacing(1),
 }));
 
 const StyledIconWrapper = styled(Box)(({ theme }) => ({

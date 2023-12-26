@@ -6,6 +6,7 @@ const SectionCol = styled(Box)(({ theme }) => ({
   flexDirection: "column",
   padding: theme.spacing(3, 3, 3, 2),
   borderRight: `1px solid ${theme.palette.divider}`,
+  flexGrow: 1,
 
   "&:last-child": {
     borderRight: "none",

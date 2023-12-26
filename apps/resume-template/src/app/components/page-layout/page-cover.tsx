@@ -12,7 +12,6 @@ const Wrapper = styled(motion.div, {
   right: 0,
   bottom: 0,
   padding: theme.spacing(2, 0),
-  overflowY: 'auto',
 }));
 
 const PageContentWrapper = styled(Box)(({ theme }) => ({
@@ -21,6 +20,11 @@ const PageContentWrapper = styled(Box)(({ theme }) => ({
   backgroundColor: 'white',
   position: 'relative',
   padding: theme.spacing(4, 0),
+  overflow: 'auto',
+  scrollbarWidth: 'thin', // For Firefox
+  '&::-webkit-scrollbar': { // For Chrome, Safari and Opera
+    width: '5px',
+  },
 }));
 
 const PageCover: FC<PropsWithChildren> = ({ children }) => {

@@ -180,7 +180,7 @@ This will be another container which will have smaller maxSize: `maxSize: md` (m
 
 ### Add and style `Experience` page:
 
-- Create file `pages/experience/expereince.tsx`
+- Create file `pages/experience/experience.tsx`
 - Add following content:
 
 ```typescript
@@ -256,4 +256,106 @@ const Experience = () => {
 export default Experience;
 ```
 
-## Refactor
+## Refactor Experience Page
+
+- As observed, the experience page consists of multiple rows, each representing a different experience. Although they share the same structure, the content varies. Each experience instance is distinguished by `company_name`, `work_duration`, `location_name`, `position`, and `experiences`.
+- Create a component for work experience. Its properties will be an experience object.
+- Declare experience object interface in `resume-template/apps/resume-template/src/app/components/work-experience/types.ts`
+
+  ```typescript
+  export interface Experience {
+    company: string;
+    title: string;
+    date: string;
+    location: string;
+    expriences: string[];
+  }
+  ```
+
+- Create `WorkExperience` component:
+
+  ```typescript
+  import { FC } from 'react';
+  import { Experience } from './types';
+  import { SectionCol, SectionRow } from '../section';
+  import { Box, Chip, ListItem, Typography, styled } from '@mui/material';
+  import { List } from 'react-feather';
+
+  const PositionInfo = styled(Box)(({ theme }) => ({
+    borderBottom: `1px solid ${theme.palette.primary.main}`,
+    padding: theme.spacing(1, 0),
+  }));
+
+  const ExpirienceInfo = styled(List)(({ theme }) => ({
+    padding: theme.spacing(2, 0),
+  }));
+  const StyledCompanyName = styled(Typography)(({ theme }) => ({
+    color: theme.palette.text.primary,
+    paddingBottom: theme.spacing(1, 0),
+  }));
+  const StyledJobTitle = styled(Typography)(({ theme }) => ({ theme }) => ({
+    color: theme.palette.text.primary,
+    paddingBottom: theme.spacing(1, 0),
+  }));
+
+  const DurationLocationWrapper = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  }));
+
+  const WorkingDuration = styled(Chip)(({ theme }) => ({
+    paddingBottom: theme.spacing(1, 0),
+  }));
+
+  type WorkExperienceProps = {
+    exprience: Experience;
+  };
+
+  const WorkExperience: FC<WorkExperienceProps> = ({ exprience }) => {
+    return (
+      <SectionRow>
+        <SectionCol>
+          <PositionInfo>
+            <StyledCompanyName variant="body1">
+              {exprience.company}
+            </StyledCompanyName>
+
+            <StyledJobTitle variant="body1">{exprience.position}</StyledJobTitle>
+            <DurationLocationWrapper>
+              <WorkingDuration label={exprience.date} color="primary" />
+
+              <Chip label={exprience.location} />
+            </DurationLocationWrapper>
+          </PositionInfo>
+          <ExpirienceInfo>
+            {exprience.expriences.map((item, index) => (
+              <ListItem key={index}>{item}</ListItem>
+            ))}
+          </ExpirienceInfo>
+        </SectionCol>
+      </SectionRow>
+    );
+  };
+
+  export default WorkExperience;
+  ```
+
+- create a `work-experiences.ts` file in `pages/experience` folder to store all you experience data.
+
+```typescript
+import { ExperienceTypes } from '../../components/work-experience';
+
+const WorkExperiences: ExperienceTypes.Experience[] = [
+  {
+    company: 'Company 1',
+    position: 'Address 1',
+    date: 'City 1',
+    location: 'State 1',
+    expriences: ['exprience 1', 'exprience 2', 'exprience 3'],
+  },
+];
+export default WorkExperiences;
+```
+
+- import data to experience page then render it.
