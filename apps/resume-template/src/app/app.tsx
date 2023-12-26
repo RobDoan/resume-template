@@ -2,19 +2,16 @@ import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 import { Layout } from './components/page-layout';
 import AnimatedBackground from './components/animated-backgroud/animated-background';
 import {
-  createBrowserRouter,
-  Outlet,
   Route,
-  RouterProvider,
   Routes,
   useLocation,
 } from 'react-router-dom';
 import { Education } from './pages/education';
 import { Experience } from './pages/experience';
+import { theme } from './mui-theme';
 
 export function App() {
-  const theme = createTheme({});
-  const location = useLocation()
+  const location = useLocation();
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />

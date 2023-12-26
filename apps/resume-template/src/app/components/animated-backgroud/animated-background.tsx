@@ -31,7 +31,6 @@ const SquareBoxContainer = styled(motion.div)<{ x: string; size: number }>(
   })
 );
 
-
 const RandomSizeBox = () => {
   return Math.random() * 200;
 };

@@ -11,7 +11,7 @@ const Wrapper = styled(motion.div, {
   left: '480px',
   right: 0,
   bottom: 0,
-  padding: theme.spacing(4, 0),
+  padding: theme.spacing(2, 0),
   overflowY: 'auto',
 }));
 
@@ -20,9 +20,6 @@ const PageContentWrapper = styled(Box)(({ theme }) => ({
   height: '100%',
   backgroundColor: 'white',
   position: 'relative',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
   padding: theme.spacing(4, 0),
 }));
 
