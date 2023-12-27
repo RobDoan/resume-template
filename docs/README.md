@@ -358,4 +358,55 @@ const WorkExperiences: ExperienceTypes.Experience[] = [
 export default WorkExperiences;
 ```
 
-- import data to experience page then render it.
+- import data to experience page then render
+
+## Add Skill Pages
+
+This page will feature two charts: a bar chart to illustrate skill experience, and a radar chart to depict personal characteristics.
+
+Some personal characteristics we can consider:
+
+- Project Management: Planning, resource allocation, task management, risk assessment, time management.
+- Collaboration: Teamwork, communication with designers, product managers, and other developers.
+- Continuous Learning: Keeping up with new technologies, attending conferences, online courses.
+- Testing: Unit testing, integration testing, end-to-end testing.
+- Performance Optimization: Code optimization, caching, performance monitoring.
+- Security: Data security, best practices for handling sensitive information.
+- Leadership: Mentoring junior developers, taking initiative in projects.
+- Adaptability: Willingness to learn new technologies and tools.
+
+We will utilize [apexcharts](https://apexcharts.com/) for rendering charts
+
+Implementation steps:
+
+1. Add ApexCharts Library:
+
+    - Install necessary packages: `npm i apexcharts react-apexcharts`
+
+2. Set Up SkillBar Component:
+
+    - Create a new component file named SkillBar.tsx within the `pages/skills/components/` folder.
+
+3. Define Skill Data Structure:
+
+    - Model skill data using the following structure:
+
+    ```javaScript
+    {
+      name: string;
+      level: number; // Value between 0 and 100 representing skill proficiency
+      description: string;
+    }
+    ```
+
+4. Implement SkillBar Component:
+
+    In SkillBar.tsx:
+    - Define a component property named skill to accept skill data.
+    - Utilize this data to render a visual representation of the skill level.
+
+5. Create Characteristics Radar Chart:
+
+    - In a separate component file, `characteristics.tsx` (located within the same folder), leverage ApexCharts capabilities to construct a visually engaging radar chart that effectively showcases your key characteristics.
+
+## About Me Page

@@ -7,6 +7,7 @@ import {
   useLocation,
 } from 'react-router-dom';
 import { Education } from './pages/education';
+import Skills from './pages/skills';
 import { Experience } from './pages/experience';
 import { theme } from './mui-theme';
 
@@ -21,7 +22,7 @@ export function App() {
           <Route path="/" element={<h1>Home</h1>} />
           <Route path="/education" element={<Education />} />
           <Route path="/experience" element={<Experience />} />
-          <Route path="/skills" element={<h1>Skills</h1>} />
+          <Route path="/skills" element={<Skills />} />
         </Routes>
       </Layout>
     </ThemeProvider>

@@ -17,6 +17,7 @@ const Profile = () => {
     <Wrapper>
       <Link to="/education">Education</Link>
       <Link to="/experience">Experience</Link>
+      <Link to="/skills">Skills</Link>
     </Wrapper>
   );
 };
