@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import { Education } from './pages/education';
 import Skills from './pages/skills';
+import AboutMe from './pages/about-me';
 import { Experience } from './pages/experience';
 import { theme } from './mui-theme';
 
@@ -23,6 +24,7 @@ export function App() {
           <Route path="/education" element={<Education />} />
           <Route path="/experience" element={<Experience />} />
           <Route path="/skills" element={<Skills />} />
+          <Route path="/about-me" element={<AboutMe />} />
         </Routes>
       </Layout>
     </ThemeProvider>

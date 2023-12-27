@@ -31,7 +31,7 @@
 ## Delete default files
 
 1. Delete `nx-welcome` file
-2  Remove `nx-welcome` component in App.
+2. Remove `nx-welcome` component in App.
 
 ## Install Mui package and setup for mui theme
 
@@ -39,25 +39,25 @@
 2. Install mui icons `npm install @mui/icons-material`
 3. Edit `resume-template/apps/resume-template/src/app/app.tsx` to be like this:
 
-```javascript
-import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+    ```javascript
+    import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 
-export function App() {
-  // Use default theme`
-  // Add <CssBaseline /> to reset all browser to a standard style
-  // Normalize.css makes browsers render all elements more consistently and in line with modern standards. It precisely targets only the styles that need normalizing.
-  const theme = createTheme({});
-  return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      This is resume template page
-    </ThemeProvider>
-  );
-}
+    export function App() {
+      // Use default theme`
+      // Add <CssBaseline /> to reset all browser to a standard style
+      // Normalize.css makes browsers render all elements more consistently and in line with modern standards. It precisely targets only the styles that need normalizing.
+      const theme = createTheme({});
+      return (
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          This is resume template page
+        </ThemeProvider>
+      );
+    }
 
-export default App;
+    export default App;
 
-```
+    ```
 
 ## Create folder strucutre
 
@@ -77,95 +77,95 @@ This will be another container which will have smaller maxSize: `maxSize: md` (m
 
 ## Creating a Background with Square Boxes Floating from Bottom to Top
 
-- install `framer-motion` package
-- create folder for component `resume-template/apps/resume-template/src/app/components/animated-backgroud`
-- Create SquareBox with size attribute
+1. install `framer-motion` package
+2. create folder for component `resume-template/apps/resume-template/src/app/components/animated-backgroud`
+3. Create SquareBox with size attribute
 
-```typescript
-  const SquareBox = styled(Box, {
-    shouldForwardProp: (prop) => prop !== 'size',
-  })<{ size: number }>(({ theme, size }) => ({
-    width: `${size}px`,
-    height: `${size}px`,
-    background: 'red',
-    marginBottom: '10px',
-  }));
-```
+    ```typescript
+      const SquareBox = styled(Box, {
+        shouldForwardProp: (prop) => prop !== 'size',
+      })<{ size: number }>(({ theme, size }) => ({
+        width: `${size}px`,
+        height: `${size}px`,
+        background: 'red',
+        marginBottom: '10px',
+      }));
+    ```
 
-- Add animation for `SquareBox` dùng motion div:
+4. Add animation for `SquareBox` dùng motion div:
 
-  - Import farmer motion : `import { motion } from 'framer-motion';`
-  - Styled `motion.div`:
+    - Import farmer motion : `import { motion } from 'framer-motion';`
+    - Styled `motion.div`:
 
-  ```typescript
-    const SquareBoxContainer = styled(motion.div)<{x: number}>(({ theme, x }) => ({
-      position: 'absolute',
-      display: 'inline-block',
-      top: 0,
-      left: x, //left attributes are different to see multiple boxes
-    }));
-  ```
+        ```typescript
+          const SquareBoxContainer = styled(motion.div)<{x: number}>(({ theme, x }) => ({
+            position: 'absolute',
+            display: 'inline-block',
+            top: 0,
+            left: x, //left attributes are different to see multiple boxes
+          }));
+        ```
 
-  - Add `SquareBoxContainert` to cover `SquareBox`
+    - Add `SquareBoxContainert` to cover `SquareBox`
 
-  ```typescript
-      <SquareBoxContainer x={i * 100}
-          animate={{ y: [1000, 0], rotate: 360 }}
-          transition={{
-            repeat: Infinity,
-            repeatType: 'loop',
-            duration: 20,
-            ease: 'linear',
-          }}
-        >
-          <SquareBox key={i} size={(i + 1) * 100} />
-        </SquareBoxContainer>
-  ```
+        ```typescript
+            <SquareBoxContainer x={i * 100}
+                animate={{ y: [1000, 0], rotate: 360 }}
+                transition={{
+                  repeat: Infinity,
+                  repeatType: 'loop',
+                  duration: 20,
+                  ease: 'linear',
+                }}
+              >
+                <SquareBox key={i} size={(i + 1) * 100} />
+              </SquareBoxContainer>
+        ```
 
-  - Based on analysis, create a Box interface encapsulating the following attributes, which differentiate individual boxes: `size`, `x position`, and `speed`.
+    - Based on analysis, create a Box interface encapsulating the following attributes, which differentiate individual boxes: `size`, `x position`, and `speed`.
 
-  ```typescript
-    interface Box{
-      x: string // percentage x-axis on screen
-      size: number
-      duration: number // Duration to move from bottom to top
-    }
-  ```
+        ```typescript
+          interface Box{
+            x: string // percentage x-axis on screen
+            size: number
+            duration: number // Duration to move from bottom to top
+          }
+        ```
 
-  - Create Box instants and apply them to the background.
+    - Create Box instants and apply them to the background.
 
-  ```typescript
-  const Boxes: Box[] = [
-      { x: '10%', size: RandomSizeBox(), duration: RandomDuration() },
-      { x: '25%', size: RandomSizeBox(), duration: RandomDuration() },
-      { x: '30%', size: RandomSizeBox(), duration: RandomDuration() },
-      { x: '40%', size: RandomSizeBox(), duration: RandomDuration() },
-      { x: '50%', size: RandomSizeBox(), duration: RandomDuration() },
-      { x: '60%', size: RandomSizeBox(), duration: RandomDuration() },
-      { x: '70%', size: RandomSizeBox(), duration: RandomDuration() },
-      { x: '80%', size: RandomSizeBox(), duration: RandomDuration() },
-      { x: '90%', size: RandomSizeBox(), duration: RandomDuration() },
-  ];
-  ```
+        ```typescript
+        const Boxes: Box[] = [
+            { x: '10%', size: RandomSizeBox(), duration: RandomDuration() },
+            { x: '25%', size: RandomSizeBox(), duration: RandomDuration() },
+            { x: '30%', size: RandomSizeBox(), duration: RandomDuration() },
+            { x: '40%', size: RandomSizeBox(), duration: RandomDuration() },
+            { x: '50%', size: RandomSizeBox(), duration: RandomDuration() },
+            { x: '60%', size: RandomSizeBox(), duration: RandomDuration() },
+            { x: '70%', size: RandomSizeBox(), duration: RandomDuration() },
+            { x: '80%', size: RandomSizeBox(), duration: RandomDuration() },
+            { x: '90%', size: RandomSizeBox(), duration: RandomDuration() },
+        ];
+        ```
 
-  ```typescript
-    <BackgroundContainer maxWidth="xl">
-      {Boxes.map((box, i) => (
-        <SquareBoxContainer
-          key={i}
-          size={box.size}
-          x={box.x}
-          animate={{ y: [1000, 0 - box.size], rotate: 360 }}
-          transition={{
-            repeat: Infinity,
-            repeatType: 'loop',
-            duration: box.duration,
-            ease: 'linear',
-          }}
-        />
-      ))}
-    </BackgroundContainer>
-  ```
+        ```typescript
+          <BackgroundContainer maxWidth="xl">
+            {Boxes.map((box, i) => (
+              <SquareBoxContainer
+                key={i}
+                size={box.size}
+                x={box.x}
+                animate={{ y: [1000, 0 - box.size], rotate: 360 }}
+                transition={{
+                  repeat: Infinity,
+                  repeatType: 'loop',
+                  duration: box.duration,
+                  ease: 'linear',
+                }}
+              />
+            ))}
+          </BackgroundContainer>
+        ```
 
 ## Create Resume Content
 
@@ -178,83 +178,90 @@ This will be another container which will have smaller maxSize: `maxSize: md` (m
 - Install `react-feather` [Feather Icon](https://feathericons.com/) package `npm i react-feather`
 - Install `react-router-dom` package: `npm i react-router-dom`
 
-### Add and style `Experience` page:
+### Add and style `Experience` page
 
 - Create file `pages/experience/experience.tsx`
 - Add following content:
 
-```typescript
-import { Box, Chip, List, ListItem, Typography, styled } from '@mui/material';
-import PageCover from '../../components/page-layout/page-cover';
-import {
-  SectionCol,
-  SectionRow,
-  SectionTitle,
-  SectionWrapper,
-} from '../../components/section';
-import { Briefcase } from 'react-feather';
+    ```typescript
+    import { Box, Chip, List, ListItem, Typography, styled } from '@mui/material';
+    import PageCover from '../../components/page-layout/page-cover';
+    import {
+      SectionCol,
+      SectionRow,
+      SectionTitle,
+      SectionWrapper,
+    } from '../../components/section';
+    import { Briefcase } from 'react-feather';
 
-const PositionInfo = styled(Box)(({ theme }) => ({
-  borderBottom: `1px solid ${theme.palette.primary.main}`,
-  padding: theme.spacing(1, 0),
-}));
+    const PositionInfo = styled(Box)(({ theme }) => ({
+      borderBottom: `1px solid ${theme.palette.primary.main}`,
+      padding: theme.spacing(1, 0),
+    }));
 
-const ExpirienceInfo = styled(List)(({ theme }) => ({
-  padding: theme.spacing(2, 0),
-}));
+    const ExpirienceInfo = styled(List)(({ theme }) => ({
+      padding: theme.spacing(2, 0),
+    }));
 
-const StyledCompanyName = styled(Typography)(({ theme }) => ({
-  color: theme.palette.text.primary,
-  paddingBottom: theme.spacing(1, 0),
-}));
+    const StyledCompanyName = styled(Typography)(({ theme }) => ({
+      color: theme.palette.text.primary,
+      paddingBottom: theme.spacing(1, 0),
+    }));
 
-const StyledJobTitle = styled(Typography)(({ theme }) => ({ theme }) => ({
-  color: theme.palette.text.primary,
-  paddingBottom: theme.spacing(1, 0),
-}));
+    const StyledJobTitle = styled(Typography)(({ theme }) => ({ theme }) => ({
+      color: theme.palette.text.primary,
+      paddingBottom: theme.spacing(1, 0),
+    }));
 
-const DurationLocationWrapper = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-}));
+    const DurationLocationWrapper = styled(Box)(({ theme }) => ({
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+    }));
 
-const WorkingDuration = styled(Chip)(({ theme }) => ({
-  paddingBottom: theme.spacing(1, 0),
-}));
+    const WorkingDuration = styled(Chip)(({ theme }) => ({
+      paddingBottom: theme.spacing(1, 0),
+    }));
 
-const Experience = () => {
-  return (
-    <PageCover>
-      <SectionWrapper>
-        <SectionTitle icon={<Briefcase size={35} />} title="Experience" />
-        <SectionRow>
-          <SectionCol>
-            <PositionInfo>
-              <StyledCompanyName variant="body1">Company name</StyledCompanyName>
+    const Experience = () => {
+      return (
+        <PageCover>
+          <SectionWrapper>
+            <SectionTitle icon={<Briefcase size={35} />} title="Experience" />
+            <SectionRow>
+              <SectionCol>
+                <PositionInfo>
+                  <StyledCompanyName variant="body1">Company name</StyledCompanyName>
 
-              <StyledJobTitle variant="body1">
-                Senior Front-End Software Engineer
-              </StyledJobTitle>
-              <DurationLocationWrapper>
-                <WorkingDuration label="April 2021 - Present" color="primary" />
+                  <StyledJobTitle variant="body1">
+                    Senior Front-End Software Engineer
+                  </StyledJobTitle>
+                  <DurationLocationWrapper>
+                    <WorkingDuration label="April 2021 - Present" color="primary" />
 
-                <Chip label="Canada" />
-              </DurationLocationWrapper>
-            </PositionInfo>
-            <ExpirienceInfo>
-              <ListItem>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit doloremque ipsa, dolore eaque veniam cum perspiciatis voluptas perferendis repellendus praesentium eum repudiandae ipsum quasi accusamus recusandae nobis omnis vel magni.</ListItem>
+                    <Chip label="Canada" />
+                  </DurationLocationWrapper>
+                </PositionInfo>
+                <ExpirienceInfo>
+                  <ListItem>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit doloremque ipsa, dolore eaque veniam cum perspiciatis voluptas perferendis repellendus praesentium eum repudiandae ipsum quasi accusamus recusandae nobis omnis vel magni.</ListItem>
 
-            </ExpirienceInfo>
-          </SectionCol>
-        </SectionRow>
-      </SectionWrapper>
-    </PageCover>
-  );
-};
+                </ExpirienceInfo>
+              </SectionCol>
+            </SectionRow>
+          </SectionWrapper>
+        </PageCover>
+      );
+    };
 
-export default Experience;
-```
+    export default Experience;
+    ```
+
+- Add `Route` to `App` component at `app.tsx`
+
+    ```typescript
+      import { Experience } from './pages/experience';
+      <Route path="/experience" element={<Experience />} />
+    ```
 
 ## Refactor Experience Page
 
@@ -410,3 +417,12 @@ Implementation steps:
     - In a separate component file, `characteristics.tsx` (located within the same folder), leverage ApexCharts capabilities to construct a visually engaging radar chart that effectively showcases your key characteristics.
 
 ## About Me Page
+
+- Add `Route` to `App` component at `app.tsx`
+
+    ```typescript
+      import AboutMe from './pages/about-me';
+      <Route path="/about-me" element={<AboutMe />} />
+    ```
+
+- This's simple page with 2 sections using `SectionWrapper` component.

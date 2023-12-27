@@ -17,6 +17,9 @@ const typography: ((palette: Palette) => TypographyOptions) = () => ({
   },
   h5: {
     fontSize: '20px',
+  },
+  "body1": {
+    fontSize: '16px',
   }
 })
 
