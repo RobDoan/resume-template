@@ -1,6 +1,7 @@
 import { Box, styled } from '@mui/material';
 import { motion } from 'framer-motion';
 import { FC, PropsWithChildren } from 'react';
+import { ProfileWidth } from './constants';
 
 const Wrapper = styled(motion.div, {
   slot: 'Page',
@@ -8,10 +9,10 @@ const Wrapper = styled(motion.div, {
   position: 'absolute',
   height: '100%',
   top: 0,
-  left: '480px',
+  left: `${ProfileWidth}px`,
   right: 0,
   bottom: 0,
-  padding: theme.spacing(2, 0),
+  padding: theme.spacing(4, 0),
 }));
 
 const PageContentWrapper = styled(Box)(({ theme }) => ({

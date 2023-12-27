@@ -426,3 +426,36 @@ Implementation steps:
     ```
 
 - This's simple page with 2 sections using `SectionWrapper` component.
+
+
+## Implement Profile Section
+
+1. Ditch red background that we used as place-holder from styling.
+2. Move profile.tsx to profile folder for cleaner structure.
+3. Profile Container Creation:
+
+    - Create a `Wrapper` component with appropriate paddingTop and paddingLeft values to reveal the desired green radiant background.
+    - Within the `Wrapper`, create a `ProfileContainer` component.
+    - Apply a boxShadow to the `ProfileContainer` to achieve a layered card effect, resembling a card sliding in and out during page transitions.
+
+4. Profile Image Styling:
+
+    - Arrow-shaped Clipping: Utilize the clip-path CSS property to create an arrow-shaped profile image:
+
+    ```css
+    clip-path: polygon(0 85%, 50% 100%, 100% 85%, 100% 0, 0 0, 0 85%);
+    ```
+
+    - Image Coverage: Set backgroundSize: cover to ensure the image fills the designated space.
+5. Content Addition: Add `name`, `role` and `social links` info
+6. Place Button at bottom of profile:
+
+    - **Flexbox Structure**: Employ Flexbox to arrange elements within the ProfileContainer:
+
+    ```css
+      flex-direction: column
+    ```
+
+    - **Place Button at bottom**: To position the "Download CV" and "Contact Me" buttons at the bottom, insert a Box component with flexGrow: 1 above them `<Box flexGrow={1} />`. This flexible spacer will push the buttons downward.
+
+## Add Menu

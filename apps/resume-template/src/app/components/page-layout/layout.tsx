@@ -1,8 +1,6 @@
 import { Box, Container, styled } from '@mui/material';
 import { FC, PropsWithChildren } from 'react';
 import Profile from './profile';
-import { green } from '@mui/material/colors';
-import PageCover from './page-cover';
 import { AnimatePresence } from 'framer-motion';
 
 const Wrapper = styled(Container)(({ theme }) => ({
