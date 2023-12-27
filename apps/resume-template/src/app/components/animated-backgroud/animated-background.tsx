@@ -7,7 +7,9 @@ interface Box {
   duration: number; // Duration to move from bottom to top
 }
 
-const BackgroundContainer = styled(Container)(({}) => ({
+const BackgroundContainer = styled(Container, {
+  name: 'AnimatedBackground',
+})(({}) => ({
   width: '100vw',
   height: '100vh',
   position: 'fixed',
@@ -52,7 +54,7 @@ const Boxes: Box[] = [
 
 const AnimatedBackground = () => {
   return (
-    <BackgroundContainer maxWidth="xl">
+    <BackgroundContainer maxWidth={false}>
       {Boxes.map((box, i) => (
         <SquareBoxContainer
           key={i}

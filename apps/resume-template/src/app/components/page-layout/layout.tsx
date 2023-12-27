@@ -26,16 +26,11 @@ const AppContainer = styled(Box)(({ theme }) => ({
   overflow: 'hidden',
   position: 'relative',
   flexGrow: 1,
-  // background: "white",
-  // gap: '20px',
-  // display: 'flex',
-  // padding: '0 80px',
-  // flexDirection: 'row-reverse',
 }));
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <Wrapper maxWidth="xl">
+    <Wrapper maxWidth={false}>
       <AppContainer>
         <AnimatePresence>{children}</AnimatePresence>
         <Profile />
