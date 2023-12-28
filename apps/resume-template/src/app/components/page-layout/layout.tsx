@@ -3,7 +3,7 @@ import { FC, PropsWithChildren } from 'react';
 import Profile from './profile';
 import Menu from './menu';
 import { AnimatePresence, motion } from 'framer-motion';
-import { MenuWidth, ProfileWidth } from './constants';
+import { MenuHeight, MenuWidth, ProfileWidth } from './constants';
 
 const Wrapper = styled(Container)(({ theme }) => ({
   width: '100vw',
@@ -26,13 +26,22 @@ const AppContainer = styled(Box)(({ theme }) => ({
   overflow: 'hidden',
   position: 'relative',
   flexGrow: 1,
+  paddingBottom: `${MenuHeight}px`,
 }));
 
 const MenuSectionWrapper = styled(Box)(({ theme }) => ({
   width: `${MenuWidth + 6}px`,
+
   position: 'absolute',
   left: 0,
   top: theme.spacing(4),
+  [theme.breakpoints.down('md')]: {
+    height: `${MenuHeight}px`,
+    position: 'fixed',
+    bottom: 0,
+    top: 'unset',
+    width: '100%',
+  }
 }));
 
 const ProfileSectionWrapper = styled(Box)(({ theme }) => ({
@@ -45,7 +54,7 @@ const ProfileSectionWrapper = styled(Box)(({ theme }) => ({
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <Wrapper maxWidth={false}>
+    <Wrapper maxWidth={false} disableGutters>
       <AppContainer>
         <AnimatePresence>{children}</AnimatePresence>
         <ProfileSectionWrapper>
