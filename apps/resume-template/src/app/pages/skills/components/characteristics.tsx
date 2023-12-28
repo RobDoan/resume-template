@@ -44,7 +44,7 @@ const CharacteristicsChartData = {
       labels: {
         show: true,
         style: {
-          fontSize: '11px',
+          fontSize: '1.1rem',
           fontWeight: 500,
           colors: '#ffffff',
         },
@@ -54,7 +54,7 @@ const CharacteristicsChartData = {
 };
 
 const StyledTypography = styled(Typography)(({ theme }) => ({
-  fontSize: '11px',
+  fontSize: '1.1rem',
 }));
 
 const Characteristics: FC = () => {

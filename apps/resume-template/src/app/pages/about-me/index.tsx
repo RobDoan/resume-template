@@ -9,11 +9,6 @@ import {
 import { Grid, Box, Chip, Typography, styled } from '@mui/material';
 
 
-const StyledSchool = styled(Typography)(({ theme }) => ({
-  fontSize: "18px",
-  fontWeight: 600,
-}));
-
 
 const AboutMe = () => {
   return (
@@ -53,7 +48,7 @@ const AboutMe = () => {
                 </Grid>
               </Grid>
               <Box sx={{ mt: 1 }}>
-                <StyledSchool>University Of technologies</StyledSchool>
+                <Typography variant='h6'>University Of technologies</Typography>
                 <Typography variant='body1' sx={{ mt: 1 }}>
                   Bachelor of Science in Computer Science
                 </Typography>

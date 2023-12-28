@@ -1,4 +1,4 @@
-import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import { Layout } from './components/page-layout';
 import AnimatedBackground from './components/animated-backgroud/animated-background';
 import {

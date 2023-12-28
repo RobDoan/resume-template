@@ -12,12 +12,12 @@ const StyledWrapper = styled(Box, {
 }));
 
 const StyledSkillName = styled(Typography, {})(({ theme }) => ({
-  fontSize: '11px',
+  fontSize: '1.1rem',
   fontWeight: 600,
   textAlign: 'left',
 }));
 const StyledSkillExperience = styled(Typography, {})(({ theme }) => ({
-  fontSize: '11px',
+  fontSize: '1.1rem',
   fontWeight: 300,
   textAlign: 'right',
 }));
