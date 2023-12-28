@@ -546,9 +546,11 @@ Implementation steps:
 
 ## Configure github to publish page
 
+- Update basename in `main.tsx` to repository name `<BrowserRouter basename='/resume-template/app'>`
+- Update `project.json` to change `"baseHref": "/resume-template/app/",`
 - Create new branch name `release`: `git checkout -b release origin/main`
 - Run build to build the page `nx build resume-template`
-- Because `dist` folder is in .gitignore. So you should rename the folder to `github-page` (it's better to leave dist to ignore - we will see it when implement gitaction to build page). `mv dist/apps/resume-template/* docs/`
+- Because `dist` folder is in .gitignore. So you should rename the folder to `github-page` (it's better to leave dist to ignore - we will see it when implement gitaction to build page). `mv dist/apps/resume-template/ docs/app`
 - Add and commit changes in github-page folder:
 
     ```bash

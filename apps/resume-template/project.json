@@ -31,6 +31,7 @@
           "vendorChunk": true
         },
         "production": {
+          "baseHref": "/resume-template/app/",
           "fileReplacements": [
             {
               "replace": "apps/resume-template/src/environments/environment.ts",
