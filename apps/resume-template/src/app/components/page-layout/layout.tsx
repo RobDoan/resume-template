@@ -29,10 +29,10 @@ const AppContainer = styled(Box)(({ theme }) => ({
 }));
 
 const MenuSectionWrapper = styled(Box)(({ theme }) => ({
-  width: `${MenuWidth}px`,
+  width: `${MenuWidth + 6}px`,
   position: 'absolute',
   left: 0,
-  top: 0,
+  top: theme.spacing(4),
 }));
 
 const ProfileSectionWrapper = styled(Box)(({ theme }) => ({
@@ -41,18 +41,6 @@ const ProfileSectionWrapper = styled(Box)(({ theme }) => ({
   position: 'absolute',
   left: `${MenuWidth}px`,
   top: 0,
-}));
-
-const PageCoverWrapper = styled(motion.div, {
-  slot: 'Page',
-})(({ theme }) => ({
-  position: 'absolute',
-  height: '100%',
-  top: 0,
-  left: `${ProfileWidth}px`,
-  right: 0,
-  bottom: 0,
-  padding: theme.spacing(4, 0),
 }));
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
