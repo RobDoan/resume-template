@@ -25,17 +25,14 @@ const StyledRole = styled(Typography)(({ theme }) => ({
 }));
 
 const Wrapper = styled(Box)(({ theme }) => ({
-  width: `${ProfileWidth}px`,
+  width: '100%',
   height: '100%',
   background:
     'linear-gradient(135deg, rgba(120, 204, 109, 0.6) 0%, rgba(120, 204, 109, 0.01) 100%)',
   borderRadius: theme.spacing(1),
   padding: theme.spacing(2, 0, 0, 2),
-  position: 'absolute',
   display: 'flex',
   flexDirection: 'column',
-  left: 0,
-  top: 0,
 }));
 
 const ProfileContainer = styled(Box)(({ theme }) => ({
