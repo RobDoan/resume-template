@@ -27,6 +27,9 @@ const AppContainer = styled(Box)(({ theme }) => ({
   position: 'relative',
   flexGrow: 1,
   paddingBottom: `${MenuHeight}px`,
+  [theme.breakpoints.down('md')]: {
+    height: '100vh',
+  },
 }));
 
 const MenuSectionWrapper = styled(Box)(({ theme }) => ({
@@ -50,6 +53,9 @@ const ProfileSectionWrapper = styled(Box)(({ theme }) => ({
   position: 'absolute',
   left: `${MenuWidth}px`,
   top: 0,
+  [theme.breakpoints.down('md')]: {
+    display: 'none',
+  }
 }));
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {

@@ -13,6 +13,10 @@ const Wrapper = styled(motion.div, {
   right: 0,
   bottom: 0,
   padding: theme.spacing(4, 0),
+  [theme.breakpoints.down('md')]: {
+    padding: theme.spacing(4, 2),
+    left: 0,
+  },
 }));
 
 const PageContentWrapper = styled(Box)(({ theme }) => ({
