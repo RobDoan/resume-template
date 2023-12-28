@@ -11,6 +11,8 @@ import AboutMe from './pages/about-me';
 import { Experience } from './pages/experience';
 import { theme } from './mui-theme';
 
+import MyProfile from './pages/my-profile';
+
 export function App() {
   const location = useLocation();
   return (
@@ -19,10 +21,10 @@ export function App() {
       <AnimatedBackground />
       <Layout>
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<h1>Home</h1>} />
           <Route path="/experience" element={<Experience />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/about-me" element={<AboutMe />} />
+          <Route path="/" element={<MyProfile />} />
         </Routes>
       </Layout>
     </ThemeProvider>

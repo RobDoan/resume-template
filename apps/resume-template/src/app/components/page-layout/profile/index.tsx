@@ -1,5 +1,4 @@
 import { Box, Button, Typography, styled } from '@mui/material';
-import { ProfileWidth } from '../constants';
 import { GitHub, Globe, Linkedin } from 'react-feather';
 
 const StyledImage = styled(Box, {
@@ -33,6 +32,9 @@ const Wrapper = styled(Box)(({ theme }) => ({
   padding: theme.spacing(2, 0, 0, 2),
   display: 'flex',
   flexDirection: 'column',
+  [theme.breakpoints.down('md')]: {
+    padding: theme.spacing(0),
+  },
 }));
 
 const ProfileContainer = styled(Box)(({ theme }) => ({

@@ -1,6 +1,6 @@
 import { ListItem, List, styled, Typography } from '@mui/material';
 import { FC } from 'react';
-import { AtSign, Briefcase, User, Zap } from 'react-feather';
+import { AtSign, Briefcase, Home, User, Zap } from 'react-feather';
 import { Link, NavLink } from 'react-router-dom';
 
 const StyledList = styled(List)(({ theme }) => ({
@@ -16,10 +16,13 @@ const StyledList = styled(List)(({ theme }) => ({
   },
 }));
 
-const StyledMenuItem = styled(ListItem)(({ theme }) => ({
+const StyledMenuItem = styled(ListItem, {
+  shouldForwardProp: (prop) => prop !== 'mobileOnly',
+})<{mobileOnly?: boolean}>(({ theme, mobileOnly }) => ({
   width: '100%',
   padding: theme.spacing(2, 0),
   position: 'relative',
+  display: `${mobileOnly ? 'none' : 'flex'}`,
   '&:after': {
     position: 'absolute',
     content: '""',
@@ -33,6 +36,7 @@ const StyledMenuItem = styled(ListItem)(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
     flexGrow: 1,
     flexBasis: 1,
+    display: 'flex',
     '&:after': {
       left: 'unset',
       right: 0,
@@ -63,6 +67,12 @@ const StyledNavLink = styled(NavLink)(({ theme }) => ({
 const Menu: FC = () => {
   return (
     <StyledList>
+      <StyledMenuItem mobileOnly>
+        <StyledNavLink to="/">
+          <Home />
+          <Typography variant="caption">Home</Typography>
+        </StyledNavLink>
+      </StyledMenuItem>
       <StyledMenuItem>
         <StyledNavLink to="/about-me">
           <User />
