@@ -483,3 +483,78 @@ Implementation steps:
 
     - Apply nice style to the `Menu`
     - Chec out the code change [here](https://github.com/RobDoan/resume-template/compare/ed3d6f22a179548ce9b25506a47dbf5a24071eee...222fc51ebe8b900534c1a9655630e011d7aae6ad)
+
+## Implementing Responsive Design for Small Screens
+
+**Breakpoints**: Screen size smaller than medium (< 899.95 px).
+
+1. Move the Menu to the Bottom on Mobile View
+
+    - Change menu positioning from absolute (relative to parent container) to fixed (relative to the window).
+    - Convert menu item borders from bottom to right.
+    - Code changes can be found [here](https://github.com/RobDoan/resume-template/compare/222fc51ebe8b900534c1a9655630e011d7aae6ad...8416f57d33a38ac0db9103e0ec8c8b7d4aabb123)
+
+2. Position `AppContainer`:
+
+    - Hide the `Profile` section on mobile screens (a new page will display this in the next section).
+    - Shift `PageCover` back to `left: 0` with custom padding.
+    - Change `AppContainer` height to `100vh`.
+    - Code changes can be found [here](https://github.com/RobDoan/resume-template/compare/8416f57d33a38ac0db9103e0ec8c8b7d4aabb123...54514bb771e6b6f5c78d7cde9db1cb9c4f3c0f5a)
+
+3. Create `MyProfile` Page as the root link, replacing `About Me` Page
+
+    - Create the `MyProfile` component in the `pages/my-profile` folder.
+    - Add MyProfile to `App.tsx` router: `<Route path="/" element={<MyProfile />} />`
+    - Utilize `useTheme` and `useMediaQuery` to detect mobile screens. If it's a desktop screen, `MyProfile` will redirect to the `/about-me` page; if it's a mobile screen, it will render the Profile.
+
+        ```typescript
+        const MyProfile : FC = () => {
+          const theme = useTheme();
+          const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
+          if (!isMobile) return <Navigate to="/about-me" />;
+
+          return <PageCover><Profile /></PageCover>
+        };
+        ```
+
+    - `Home` menu will be displayed on mobile screens only. To achieve this, we introduce a `mobileOnly` property for the `MenuItem` component in `Menu.tsx`.
+    - Code changes can be found [here](https://github.com/RobDoan/resume-template/compare/54514bb771e6b6f5c78d7cde9db1cb9c4f3c0f5a...4695bf749ef52b1223e316578dc5d19c6c1b6982)
+
+4. Optimize MyProfile Page for Mobile Screen
+
+    - When checking the `MyProfile` page, you may notice an undesirable space above the picture. To enhance the visual appeal, we aim to eliminate this padding for the `Profile` Page. The issue stems from utilizing `PageCover` for `MyProfile`. Our solution involves retaining the use of `PageCover` but modifying its behavior for `MyProfile`. This approach allows us to maintain code reuse, ensuring consistent changes across all pages. By doing so, any alterations to animations will seamlessly apply to all pages without the need for separate implementations.
+    - We're introducing an optional property for `PageCover` to control the presence of padding. This property will be named `disablePadding`.
+    - Code changes can be found [here](https://github.com/RobDoan/resume-template/compare/4695bf749ef52b1223e316578dc5d19c6c1b6982...17624ba79acec5f0f950f18719160cb3995f8f83)
+
+5. Optimization Text size on pages
+
+    - The text appears relatively large on mobile screens, prompting us to implement responsive text sizing.
+    - Leveraging the `responsiveFontSizes` function from the `Mui` library for this purpose.
+    - Transitioning from using `px` to `rem` units for font sizes.
+    - Code changes can be found [here](https://github.com/RobDoan/resume-template/compare/17624ba79acec5f0f950f18719160cb3995f8f83...edd3c5999d192e359f08127c0d5f8cf9be4ad7c0)
+    - Read more about `rem` unit [here](https://www.aleksandrhovhannisyan.com/blog/62-5-percent-font-size-trick/)
+
+6. Optimize layout for `Skill` page
+
+    - The two-column layout appears cramped without sufficient spacing on mobile screens.
+    - Code changes can be found [here](https://github.com/RobDoan/resume-template/compare/edd3c5999d192e359f08127c0d5f8cf9be4ad7c0...cc3aed42ae1dbe0869f23f16d5f602bb436fb8b3)
+
+7. Optimize some minor issues
+
+    - Code changes can be found [here](https://github.com/RobDoan/resume-template/compare/cc3aed42ae1dbe0869f23f16d5f602bb436fb8b3...06c630a356017c03c89bf20257f88e1f2133d8fd)
+
+## Configure github to publish page
+
+- Create new branch name `release`: `git checkout -b release origin/main`
+- Run build to build the page `nx build resume-template`
+- Because `dist` folder is in .gitignore. So you should rename the folder to `github-page` (it's better to leave dist to ignore - we will see it when implement gitaction to build page). `mv dist/apps/resume-template/* docs/`
+- Add and commit changes in github-page folder:
+
+    ```bash
+      git add ./docs`
+      git commit -m "new release"
+      git push orign release
+    ```
+
+- Following step in [this document](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) to publish page
