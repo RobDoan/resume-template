@@ -459,3 +459,27 @@ Implementation steps:
     - **Place Button at bottom**: To position the "Download CV" and "Contact Me" buttons at the bottom, insert a Box component with flexGrow: 1 above them `<Box flexGrow={1} />`. This flexible spacer will push the buttons downward.
 
 ## Add Menu
+
+1. Create Menu List:
+
+    - Start by creating a list of menu items in the page-layout/menu folder.
+    Utilize the List and ListItem components.
+    - You can refer to this [version](https://github.com/RobDoan/resume-template/blob/08e17758e79264da453cc1377d5a9de35a175335/apps/resume-template/src/app/components/page-layout/menu/index.tsx) for the initial content.
+
+2. Integrate Menu into Layout:
+
+    - Add the Menu to your existing Layout component.
+    - You can review the changes made [here](https://github.com/RobDoan/resume-template/compare/08e17758e79264da453cc1377d5a9de35a175335...79d7fcb9b79c0b2178c8232d5c59af6292774237).
+
+3. Position the Menu:
+
+    - Initially, our approach is: the page content takes the entire area, shifting left based on the profile section size.
+    - Choose your approach: Either increase the Profile size (then make a flex box to put menu beside) or position the menu outside the profile section, shifting the profile to the left.
+    - In this example, the second approach is used, placing the menu at the top left corner of the page and shifting the profile to the left.
+    - Create a `MenuWrapper` to position the `Menu`. To keep the code clean, and orgianized we should create the positional component in `Layout` component. The component will fill the assigned positions.
+    - Check out the code changes [here](https://github.com/RobDoan/resume-template/compare/79d7fcb9b79c0b2178c8232d5c59af6292774237...ed3d6f22a179548ce9b25506a47dbf5a24071eee).
+
+4. Style the Menu:
+
+    - Apply nice style to the `Menu`
+    - Chec out the code change [here](https://github.com/RobDoan/resume-template/compare/ed3d6f22a179548ce9b25506a47dbf5a24071eee...222fc51ebe8b900534c1a9655630e011d7aae6ad)
