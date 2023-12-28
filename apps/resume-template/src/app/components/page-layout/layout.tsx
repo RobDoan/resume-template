@@ -1,6 +1,7 @@
 import { Box, Container, styled } from '@mui/material';
 import { FC, PropsWithChildren } from 'react';
 import Profile from './profile';
+import Menu from './menu';
 import { AnimatePresence } from 'framer-motion';
 
 const Wrapper = styled(Container)(({ theme }) => ({
@@ -32,6 +33,7 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
       <AppContainer>
         <AnimatePresence>{children}</AnimatePresence>
         <Profile />
+        <Menu />
       </AppContainer>
     </Wrapper>
   );
