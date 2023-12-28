@@ -39,11 +39,11 @@ const AboutMe = () => {
         <SectionRow>
           <SectionCol>
             <Box>
-              <Grid container justifyContent="space-between">
-                <Grid item md={6} xs={12}>
+              <Grid container justifyContent="space-between" gap={1}>
+                <Grid item md={4} xs={12}>
                   <Chip label="2000-2006" color="default" />
                 </Grid>
-                <Grid item md={6} xs={12}>
+                <Grid item md={4} xs={12}>
                   <Chip label="Ho Chi Minh, Viet Nam" color="default" />
                 </Grid>
               </Grid>

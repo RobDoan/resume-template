@@ -11,23 +11,31 @@ const PositionInfo = styled(Box)(({ theme }) => ({
 const ExperienceInfo = styled(List)(({ theme }) => ({
   padding: theme.spacing(2, 0, 0),
 }));
-const StyledExperienceItem = styled(ListItem)(({ theme }) => ({
-  fontSize: "14px",
-}));
+
 
 const StyledCompanyName = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.primary,
   paddingBottom: theme.spacing(1, 0),
+  fontWeight: theme.typography.fontWeightBold,
 }));
+
 const StyledJobTitle = styled(Typography)(({ theme }) => ({ theme }) => ({
   color: theme.palette.text.primary,
   paddingBottom: theme.spacing(1, 0),
+  fontWeight: theme.typography.fontWeightBold,
 }));
 
 const DurationLocationWrapper = styled(Box)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
+
+  [theme.breakpoints.down('md')]: {
+    marginTop: theme.spacing(1),
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    gap: theme.spacing(1),
+  },
 }));
 
 const WorkingDuration = styled(Chip)(({ theme }) => ({
@@ -56,7 +64,9 @@ const WorkExperience: FC<WorkExperienceProps> = ({ exprience }) => {
         </PositionInfo>
         <ExperienceInfo>
           {exprience.expriences.map((item, index) => (
-            <StyledExperienceItem key={index} disableGutters>{item}</StyledExperienceItem>
+            <ListItem key={index} disableGutters>
+              <Typography variant='body1'>{item}</Typography>
+            </ListItem>
           ))}
         </ExperienceInfo>
       </SectionCol>
