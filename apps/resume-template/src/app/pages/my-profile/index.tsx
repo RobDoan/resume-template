@@ -10,7 +10,7 @@ const MyProfile : FC = () => {
 
   if (!isMobile) return <Navigate to="/about-me" />;
 
-  return <PageCover>
+  return <PageCover disablePadding>
     <Profile />
   </PageCover>
 };

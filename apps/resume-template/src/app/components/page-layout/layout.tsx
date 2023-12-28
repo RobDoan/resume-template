@@ -26,7 +26,6 @@ const AppContainer = styled(Box)(({ theme }) => ({
   overflow: 'hidden',
   position: 'relative',
   flexGrow: 1,
-  paddingBottom: `${MenuHeight}px`,
   [theme.breakpoints.down('md')]: {
     height: '100vh',
   },
