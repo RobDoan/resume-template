@@ -40,11 +40,11 @@ const AboutMe = () => {
           <SectionCol>
             <Box>
               <Grid container justifyContent="space-between">
-                <Grid item>
+                <Grid item md={6} xs={12}>
                   <Chip label="2000-2006" color="default" />
                 </Grid>
-                <Grid item>
-                  <Chip label="Ho Chi Minh, Viet Nam" color="default" sx={{}} />
+                <Grid item md={6} xs={12}>
+                  <Chip label="Ho Chi Minh, Viet Nam" color="default" />
                 </Grid>
               </Grid>
               <Box sx={{ mt: 1 }}>

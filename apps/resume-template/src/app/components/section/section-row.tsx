@@ -7,6 +7,11 @@ const SectionRow = styled(Box)(({ theme }) => ({
   justifyContent: "space-between",
   alignItems: "flex-start",
   borderTop: `1px solid ${theme.palette.divider}`,
+
+  [theme.breakpoints.down("md")]: {
+    flexDirection: "column",
+    width: "100%",
+  }
 }));
 
 export default SectionRow;

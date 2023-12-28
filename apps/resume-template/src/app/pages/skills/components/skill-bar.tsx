@@ -9,6 +9,9 @@ const StyledWrapper = styled(Box, {
   display: 'flex',
   flexDirection: 'column',
   width: '100%',
+  [theme.breakpoints.down('md')]: {
+    padding: theme.spacing(1),
+  },
 }));
 
 const StyledSkillName = styled(Typography, {})(({ theme }) => ({

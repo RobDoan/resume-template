@@ -35,7 +35,7 @@ const StyledMenuItem = styled(ListItem, {
   },
   [theme.breakpoints.down('md')]: {
     flexGrow: 1,
-    flexBasis: 1,
+    flexBasis: "100%",
     display: 'flex',
     '&:after': {
       left: 'unset',
