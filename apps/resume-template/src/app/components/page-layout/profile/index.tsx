@@ -93,7 +93,7 @@ const ActionButton = styled(Button)(({ theme }) => ({
   fontSize: theme.typography.body1.fontSize,
   textAlign: 'center',
   position: 'relative',
-  '&:first-child': {
+  '&:first-of-child': {
     '&:after': {
       content: '""',
       position: 'absolute',

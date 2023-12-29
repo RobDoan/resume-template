@@ -6,15 +6,15 @@ import "@fontsource/poppins/400-italic.css";
 import '@fontsource/satisfy';
 
 import App from './app/app';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, HashRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <StrictMode>
-    <BrowserRouter basename='/resume-template/app/'>
+    <HashRouter>
       <App />
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>
 );

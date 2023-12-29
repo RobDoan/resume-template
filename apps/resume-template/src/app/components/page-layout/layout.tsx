@@ -43,7 +43,7 @@ const MenuSectionWrapper = styled(Box)(({ theme }) => ({
     bottom: 0,
     top: 'unset',
     width: '100%',
-  }
+  },
 }));
 
 const ProfileSectionWrapper = styled(Box)(({ theme }) => ({
@@ -54,14 +54,29 @@ const ProfileSectionWrapper = styled(Box)(({ theme }) => ({
   top: 0,
   [theme.breakpoints.down('md')]: {
     display: 'none',
-  }
+  },
+}));
+
+const PageContentCover = styled(Box, {
+  name: 'PageContentCover',
+})(({ theme }) => ({
+  width: '100%',
+  height: '100%',
+  position: 'relative',
+  overflowX: 'hidden',
+  marginLeft: `${MenuWidth + 20}px`,
+  [theme.breakpoints.down('md')]: {
+    marginLeft: 0,
+  },
 }));
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <Wrapper maxWidth={false} disableGutters>
       <AppContainer>
-        <AnimatePresence>{children}</AnimatePresence>
+        <PageContentCover>
+          <AnimatePresence>{children}</AnimatePresence>
+        </PageContentCover>
         <ProfileSectionWrapper>
           <Profile />
         </ProfileSectionWrapper>
