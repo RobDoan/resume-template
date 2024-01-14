@@ -2,7 +2,9 @@
   "name": "@resume-template/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build": "nx run resume-template:build"
+  },
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
