@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "nx run resume-template:build"
+    "build": "nx run resume-template:build",
+    "serve": "nx run resume-template:serve",
+    "start": "nx run resume-template:serve",
+    "test": "nx run resume-template:test"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +23,7 @@
     "react-dom": "18.2.0",
     "react-feather": "^2.0.10",
     "react-router-dom": "^6.21.1",
+    "react-social-icons": "^6.10.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

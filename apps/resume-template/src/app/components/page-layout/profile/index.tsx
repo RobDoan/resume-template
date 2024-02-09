@@ -1,5 +1,5 @@
 import { Box, Button, Typography, styled } from '@mui/material';
-import { GitHub, Globe, Linkedin } from 'react-feather';
+import { SocialIcon } from 'react-social-icons';
 
 const StyledImage = styled(Box, {
   shouldForwardProp: (prop) => prop !== 'src',
@@ -58,8 +58,8 @@ const SocialLinks = styled(Box)(({ theme }) => ({
   justifyContent: 'center',
 }));
 
-const SocialLink = styled('a')(({ theme }) => ({
-  padding: theme.spacing(1, 2),
+const SocialLink = styled(SocialIcon)(({ theme }) => ({
+  margin: theme.spacing(1),
   color: theme.palette.grey[600],
   textDecoration: 'none',
   fontSize: theme.typography.body1.fontSize,
@@ -117,18 +117,28 @@ const Profile = () => {
           <StyledRole>Software Engineer</StyledRole>
         </NameAndRoleCover>
         <SocialLinks>
-          <SocialLink href="https://github.com/RobDoan" target="_blank">
-            <GitHub size={24} />
-          </SocialLink>
           <SocialLink
-            href="https://www.linkedin.com/in/quy-doan-56516512/"
+            url="https://github.com/RobDoan"
             target="_blank"
-          >
-            <Linkedin size={24} />
-          </SocialLink>
-          <SocialLink href="/skills" target="_blank">
-            <Globe size={24} />
-          </SocialLink>
+            style={{ width: '36px', height: '36px' }}
+          />
+
+          <SocialLink
+            url="https://www.linkedin.com/in/quy-doan-56516512/"
+            target="_blank"
+            style={{ width: '36px', height: '36px' }}
+          />
+
+          <SocialLink
+            url="https://medium.com/@quydoantran"
+            target="_blank"
+            style={{ width: '36px', height: '36px' }}
+          />
+          <SocialLink
+            url="/#skills"
+            target="_blank"
+            style={{ width: '36px', height: '36px' }}
+          />
         </SocialLinks>
         <Box flexGrow={1} />
         <ActionsSection>
