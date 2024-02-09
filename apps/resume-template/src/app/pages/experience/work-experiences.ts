@@ -7,12 +7,9 @@ const WorkExperiences: ExperienceTypes.Experience[] = [
     date: 'Apr 2021 - Present',
     location: 'Toronto, Canada',
     expriences: [
-      `Uncovered and addressed 2-3 critical, logic-based vulnerabilities in Python code
-    that evaded standard security tools. These zaws, if exploited, could have granted
-    unauthoriDed access to user accounts and sensitive data, leading to %nancial
-    losses, reputational damage, and regulatory non-compliance.`,
-      `Developed and championed reusable libraries for microservices, reducing code duplication by 30% and streamlining development workflows.`,
-      `Pioneered the first front-end test automation framework, driving code coverage to 80% unit coverage and enabling faster, more reliable deployments. This initiative significantly improved product quality and reduced regression defects.`
+      `Developed and championed reusable libraries for front-end applications, reducing code duplication by 30% and streamlining development workflows.`,
+      `Pioneered the first front-end test automation framework, driving code coverage to 80% unit coverage and enabling faster, more reliable deployments. This initiative significantly improved product quality and reduced regression defects.`,
+      `Proactively discovered and mitigated critical security flaws in core systems, safeguarding user data and system integrity.`,
     ],
   },
 
