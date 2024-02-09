@@ -60,7 +60,7 @@ const ProfileSectionWrapper = styled(Box)(({ theme }) => ({
 const PageContentCover = styled(Box, {
   name: 'PageContentCover',
 })(({ theme }) => ({
-  width: '100%',
+  // width: '100%',
   height: '100%',
   position: 'relative',
   overflowX: 'hidden',
