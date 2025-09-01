@@ -21,13 +21,21 @@ const Wrapper = styled(Container)(({ theme }) => ({
 }));
 
 const AppContainer = styled(Box)(({ theme }) => ({
-  height: '80vh',
-  maxWidth: '1200px',
+  height: '85vh',
+  maxWidth: '1400px',
   overflow: 'hidden',
   position: 'relative',
   flexGrow: 1,
+  borderRadius: theme.spacing(3),
+  backgroundColor: 'rgba(255, 255, 255, 0.02)',
+  backdropFilter: 'blur(10px)',
+  border: '1px solid rgba(255, 255, 255, 0.1)',
   [theme.breakpoints.down('md')]: {
     height: '100vh',
+    borderRadius: 0,
+    backgroundColor: 'transparent',
+    backdropFilter: 'none',
+    border: 'none',
   },
 }));
 

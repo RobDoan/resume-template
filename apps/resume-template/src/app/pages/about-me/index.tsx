@@ -1,133 +1,253 @@
-import { Target, User } from 'react-feather';
+import { Target, User, MapPin, Calendar, BookOpen, Award } from 'react-feather';
 import PageCover from '../../components/page-layout/page-cover';
 import {
-  SectionCol,
-  SectionRow,
-  SectionTitle,
   SectionWrapper,
 } from '../../components/section';
-import { Grid, Box, Chip, Typography, styled } from '@mui/material';
+import { Grid, Box, Chip, Typography, styled, Card, CardContent } from '@mui/material';
+import { motion } from 'framer-motion';
 
+// Modern styled components for better visual hierarchy
+const HeroSection = styled(Box)(({ theme }) => ({
+  background: `linear-gradient(135deg, ${theme.palette.primary.main}15 0%, ${theme.palette.secondary.main}08 100%)`,
+  borderRadius: theme.spacing(3),
+  padding: theme.spacing(6, 4),
+  marginBottom: theme.spacing(4),
+  position: 'relative',
+  overflow: 'hidden',
+  '&::before': {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: '1px',
+    background: `linear-gradient(90deg, transparent, ${theme.palette.primary.main}40, transparent)`,
+  }
+}));
+
+const ModernCard = styled(Card)(({ theme }) => ({
+  borderRadius: theme.spacing(2),
+  border: `1px solid ${theme.palette.grey[100]}`,
+  boxShadow: '0 2px 8px rgba(99, 102, 241, 0.08)',
+  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+  '&:hover': {
+    transform: 'translateY(-2px)',
+    boxShadow: '0 8px 24px rgba(99, 102, 241, 0.15)',
+  }
+}));
+
+const TimelineItem = styled(Box)(({ theme }) => ({
+  position: 'relative',
+  paddingLeft: theme.spacing(4),
+  marginBottom: theme.spacing(3),
+  '&:not(:last-child)::before': {
+    content: '""',
+    position: 'absolute',
+    left: '11px',
+    top: theme.spacing(4),
+    bottom: theme.spacing(-3),
+    width: '2px',
+    background: `linear-gradient(to bottom, ${theme.palette.primary.main}40, ${theme.palette.grey[200]})`,
+  },
+  '&::after': {
+    content: '""',
+    position: 'absolute',
+    left: '6px',
+    top: theme.spacing(1),
+    width: '12px',
+    height: '12px',
+    borderRadius: '50%',
+    background: theme.palette.primary.main,
+    border: `3px solid ${theme.palette.background.paper}`,
+    boxShadow: `0 0 0 3px ${theme.palette.primary.main}20`,
+  }
+}));
+
+const StatCard = styled(Box)(({ theme }) => ({
+  textAlign: 'center',
+  padding: theme.spacing(3),
+  borderRadius: theme.spacing(2),
+  background: theme.palette.background.paper,
+  border: `1px solid ${theme.palette.grey[100]}`,
+}));
 
 
 const AboutMe = () => {
+  const highlights = [
+    { icon: <Award size={20} />, title: "Bin Genius Founder", desc: "AI waste-sorting finalist" },
+    { icon: <BookOpen size={20} />, title: "IB Student", desc: "Year 2 at Churchill Secondary" },
+    { icon: <MapPin size={20} />, title: "Global Experience", desc: "Vietnam → USA → Canada" },
+  ];
+
   return (
     <PageCover>
+      {/* Hero Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <HeroSection>
+          <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+            <User size={28} style={{ marginRight: 12, color: '#6366F1' }} />
+            <Typography variant="h3" sx={{ fontWeight: 700, color: 'text.primary' }}>
+              About Me
+            </Typography>
+          </Box>
+          
+          <Grid container spacing={3} sx={{ mb: 4 }}>
+            {highlights.map((highlight, index) => (
+              <Grid item xs={12} md={4} key={index}>
+                <StatCard>
+                  <Box sx={{ color: 'primary.main', mb: 1 }}>{highlight.icon}</Box>
+                  <Typography variant="h6" sx={{ mb: 0.5 }}>{highlight.title}</Typography>
+                  <Typography variant="body2" color="text.secondary">{highlight.desc}</Typography>
+                </StatCard>
+              </Grid>
+            ))}
+          </Grid>
+
+          <Typography variant="h5" sx={{ mb: 3, fontWeight: 600, lineHeight: 1.4 }}>
+            Engineering Student & Innovator from Vietnam, passionate about creating technology that makes a difference
+          </Typography>
+          
+          <Typography variant="body1" sx={{ mb: 2, opacity: 0.9 }}>
+            I'm <strong>Thien Huynh</strong>, a Year 2 IB student at Sir Winston Churchill Secondary School in Vancouver, BC. 
+            Empathetic, collaborative, and hands-on — these qualities define my approach to both academics and real-world challenges.
+          </Typography>
+        </HeroSection>
+      </motion.div>
+
+      {/* Story Section */}
       <SectionWrapper>
-        <SectionTitle icon={<User size={35} />} title="About Me" />
-        <SectionRow>
-          <SectionCol>
-            <Typography variant="body1">
-              My name is Thien Huynh, and I am going into Year 2 as an IB student at Sir Winston Churchill Secondary School in Vancouver, BC. Empathetic, collaborative and hands-on are qualities that I believe would apply to me and describes how I would approach things at both academic standpoints and the real world.
-            </Typography>
-            <Typography variant="body1" sx={{ mt: 1 }}>
-              I left Vietnam to attend Perkiomen School in Pennsylvania on a full four-year scholarship at a young age of 13. Living and studying abroad, far away from my family or friends at such a young age taught me how to adapt and become more independent in an unknown environment, qualities that are fundamental to both my academic and personal development.
-            </Typography>
-            <Typography variant="body1" sx={{ mt: 1 }}>
-              I have always been fascinated with how mechanical systems work. In my childhood, I had a phase of studying how bicycles work, how each component blend together to spin the wheel when you push on the pedal and how different types of bikes use different mechanics for their own respective purposes. This curious personality I carried with me until now, a passion to create. Thanks to this, a friend and I started our own project, Bin Genius, an AI-powered waste-sorting system that we made for the 2024 Youth Innovation Showcase and landed a position as a finalist in the competition, that was also recognized by CBC news. I have also taken on leadership roles in school-wide STEM initiatives and pursued internships that allow me to explore the intersection of design, engineering, and real-world impact.
-            </Typography>
-            <Typography variant="body1" sx={{ mt: 1 }}>
-              Outside of academics, I am also an avid badminton player and have participated in many tournaments for my school team. The sport gave me an option to connect with my peers outside of the academic space and serves as a way to destress in academic heavy periods of my life.
-            </Typography>
-            <Typography variant="body1" sx={{ mt: 1 }}>
-              I am drawn to the University of Toronto's Mechatronics Engineering for its unique and rigorous academic program that emphasizes a more hands-on approach to learning and that it offers an opportunity for me to both learn and work at the same time, allowing me to gain much valuable experience. I am eager to contribute to University of Toronto's learning environment where collaboration and curiosity are traits that are highly regarded, to be part of a community committed to building technologies that make a difference.
-            </Typography>
-          </SectionCol>
-        </SectionRow>
+        <Box sx={{ mb: 4 }}>
+          <Typography variant="h4" sx={{ mb: 3, fontWeight: 600 }}>My Journey</Typography>
+          
+          <ModernCard sx={{ mb: 3 }}>
+            <CardContent sx={{ p: 4 }}>
+              <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.7 }}>
+                At 13, I left Vietnam to attend <strong>Perkiomen School in Pennsylvania</strong> on a full four-year scholarship. 
+                Living and studying abroad, far from family and friends, taught me to adapt and become independent in unknown environments — 
+                qualities fundamental to my academic and personal growth.
+              </Typography>
+            </CardContent>
+          </ModernCard>
+
+          <ModernCard sx={{ mb: 3 }}>
+            <CardContent sx={{ p: 4 }}>
+              <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.7 }}>
+                I've always been fascinated by mechanical systems. As a child, I studied how bicycles work — how components blend together 
+                when you push the pedal, how different bikes use different mechanics. This curiosity evolved into a passion to create.
+              </Typography>
+              <Typography variant="body1" sx={{ lineHeight: 1.7 }}>
+                With a friend, I founded <strong>Bin Genius</strong>, an AI-powered waste-sorting system that became a finalist at the 
+                2024 Youth Innovation Showcase and was recognized by CBC news.
+              </Typography>
+            </CardContent>
+          </ModernCard>
+
+          <ModernCard>
+            <CardContent sx={{ p: 4 }}>
+              <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.7 }}>
+                Beyond academics, I'm an avid <strong>badminton player</strong>, competing in tournaments for my school team. 
+                The sport connects me with peers and serves as my way to destress during intensive academic periods.
+              </Typography>
+              <Typography variant="body1" sx={{ lineHeight: 1.7 }}>
+                I'm drawn to the <strong>University of Toronto's Mechatronics Engineering</strong> program for its hands-on approach 
+                and co-op opportunities. I want to be part of a community committed to building technologies that make a difference.
+              </Typography>
+            </CardContent>
+          </ModernCard>
+        </Box>
       </SectionWrapper>
+
+      {/* Education Timeline */}
       <SectionWrapper>
-        <SectionTitle icon={<Target size={35} />} title="Education" />
-        <SectionRow>
-          <SectionCol>
-            <Box>
-              <Grid container justifyContent="space-between" gap={1}>
-                <Grid item md={4} xs={12}>
-                  <Chip label="2024-2026" color="primary" />
-                </Grid>
-                <Grid item md={4} xs={12}>
-                  <Chip label="Vancouver, BC, Canada" color="default" />
-                </Grid>
-              </Grid>
-              <Box sx={{ mt: 1 }}>
-                <Typography variant='h6'>Sir Winston Churchill Secondary School</Typography>
-                <Typography variant='body1' sx={{ mt: 1 }}>
-                  International Baccalaureate (IB) Program – Year 2 (Grade 11–12)
-                </Typography>
-                <Typography variant='body2' sx={{ mt: 0.5 }}>
-                  Expected Graduation: June 2026
-                </Typography>
-              </Box>
-            </Box>
-            
-            <Box sx={{ mt: 3 }}>
-              <Grid container justifyContent="space-between" gap={1}>
-                <Grid item md={4} xs={12}>
-                  <Chip label="2023-2024" color="default" />
-                </Grid>
-                <Grid item md={4} xs={12}>
-                  <Chip label="Vancouver, BC, Canada" color="default" />
-                </Grid>
-              </Grid>
-              <Box sx={{ mt: 1 }}>
-                <Typography variant='h6'>Gladstone Secondary School</Typography>
-                <Typography variant='body1' sx={{ mt: 1 }}>
-                  Grade 10
-                </Typography>
-              </Box>
-            </Box>
-            
-            <Box sx={{ mt: 3 }}>
-              <Grid container justifyContent="space-between" gap={1}>
-                <Grid item md={4} xs={12}>
-                  <Chip label="2022-2023" color="default" />
-                </Grid>
-                <Grid item md={4} xs={12}>
-                  <Chip label="Pennsylvania, USA" color="default" />
-                </Grid>
-              </Grid>
-              <Box sx={{ mt: 1 }}>
-                <Typography variant='h6'>Perkiomen School</Typography>
-                <Typography variant='body1' sx={{ mt: 1 }}>
-                  Grade 9 - Full Four-Year Scholarship
-                </Typography>
-              </Box>
-            </Box>
-            
-            <Box sx={{ mt: 3 }}>
-              <Grid container justifyContent="space-between" gap={1}>
-                <Grid item md={4} xs={12}>
-                  <Chip label="2020-2022" color="default" />
-                </Grid>
-                <Grid item md={4} xs={12}>
-                  <Chip label="Ho Chi Minh City, Vietnam" color="default" />
-                </Grid>
-              </Grid>
-              <Box sx={{ mt: 1 }}>
-                <Typography variant='h6'>EMASI Van Phuc School</Typography>
-                <Typography variant='body1' sx={{ mt: 1 }}>
-                  Grades 7–8
-                </Typography>
-              </Box>
-            </Box>
-            
-            <Box sx={{ mt: 3 }}>
-              <Grid container justifyContent="space-between" gap={1}>
-                <Grid item md={4} xs={12}>
-                  <Chip label="2014-2020" color="default" />
-                </Grid>
-                <Grid item md={4} xs={12}>
-                  <Chip label="Ho Chi Minh City, Vietnam" color="default" />
-                </Grid>
-              </Grid>
-              <Box sx={{ mt: 1 }}>
-                <Typography variant='h6'>Vietnam Australia International School</Typography>
-                <Typography variant='body1' sx={{ mt: 1 }}>
-                  Grades 1–6
-                </Typography>
-              </Box>
-            </Box>
-          </SectionCol>
-        </SectionRow>
+        <Box sx={{ display: 'flex', alignItems: 'center', mb: 4 }}>
+          <Target size={28} style={{ marginRight: 12, color: '#10B981' }} />
+          <Typography variant="h4" sx={{ fontWeight: 600 }}>Education Timeline</Typography>
+        </Box>
+
+        <Box sx={{ pl: 2 }}>
+          {[
+            {
+              period: "2024-2026",
+              location: "Vancouver, BC, Canada",
+              school: "Sir Winston Churchill Secondary School",
+              program: "International Baccalaureate (IB) Program – Year 2",
+              note: "Expected Graduation: June 2026",
+              current: true
+            },
+            {
+              period: "2023-2024",
+              location: "Vancouver, BC, Canada", 
+              school: "Gladstone Secondary School",
+              program: "Grade 10"
+            },
+            {
+              period: "2022-2023",
+              location: "Pennsylvania, USA",
+              school: "Perkiomen School", 
+              program: "Grade 9",
+              note: "Full Four-Year Scholarship"
+            },
+            {
+              period: "2020-2022",
+              location: "Ho Chi Minh City, Vietnam",
+              school: "EMASI Van Phuc School",
+              program: "Grades 7–8"
+            },
+            {
+              period: "2014-2020",
+              location: "Ho Chi Minh City, Vietnam",
+              school: "Vietnam Australia International School",
+              program: "Grades 1–6"
+            }
+          ].map((edu, index) => (
+            <TimelineItem key={index}>
+              <ModernCard sx={{ 
+                backgroundColor: edu.current ? 'primary.main' : 'background.paper',
+                color: edu.current ? 'white' : 'inherit',
+                '& .MuiChip-root': {
+                  backgroundColor: edu.current ? 'rgba(255,255,255,0.2)' : undefined
+                }
+              }}>
+                <CardContent sx={{ p: 3 }}>
+                  <Box sx={{ display: 'flex', gap: 1, mb: 2, flexWrap: 'wrap' }}>
+                    <Chip 
+                      icon={<Calendar size={14} />}
+                      label={edu.period} 
+                      size="small"
+                      color={edu.current ? "secondary" : "primary"}
+                    />
+                    <Chip 
+                      icon={<MapPin size={14} />}
+                      label={edu.location} 
+                      size="small" 
+                      variant="outlined"
+                    />
+                  </Box>
+                  
+                  <Typography variant="h6" sx={{ mb: 1, fontWeight: 600 }}>
+                    {edu.school}
+                  </Typography>
+                  <Typography variant="body1" sx={{ mb: edu.note ? 1 : 0 }}>
+                    {edu.program}
+                  </Typography>
+                  {edu.note && (
+                    <Typography variant="body2" sx={{ 
+                      opacity: 0.8, 
+                      fontStyle: 'italic',
+                      color: edu.current ? 'inherit' : 'text.secondary' 
+                    }}>
+                      {edu.note}
+                    </Typography>
+                  )}
+                </CardContent>
+              </ModernCard>
+            </TimelineItem>
+          ))}
+        </Box>
       </SectionWrapper>
     </PageCover>
   );

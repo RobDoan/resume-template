@@ -19,8 +19,9 @@ const StyledName = styled(Typography)(({ theme }) => ({
 }));
 
 const StyledRole = styled(Typography)(({ theme }) => ({
-  fontSize: theme.typography.h6.fontSize,
-  color: theme.palette.grey[600],
+  fontSize: theme.typography.body1.fontSize,
+  color: theme.palette.text.secondary,
+  fontWeight: 500,
 }));
 
 const Wrapper = styled(Box)(({ theme }) => ({
