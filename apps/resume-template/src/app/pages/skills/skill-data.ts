@@ -2,50 +2,59 @@ import { Skill } from "./components/types";
 
 const SkillData: Skill[] = [
   {
-    name: 'Ruby',
-    level: 90,
-    description: '17 years',
-  },
-  {
-    name: 'Javascript/Typescript',
-    level: 90,
-    description: '18 years',
-  },
-  {
     name: 'Python',
-    level: 60,
-    description: '5 years',
-  },
-
-  {
-    name: 'Go',
-    level: 50,
-    description: '2 years',
-  },
-  {
-    name: 'MySQL',
-    level: 75,
-    description: '18 years',
-  },
-  {
-    name: 'Redis',
     level: 85,
-    description: '12 years',
+    description: 'AI/ML Development',
   },
   {
-    name: 'PostgreSQL',
+    name: 'YOLOv8',
+    level: 80,
+    description: 'Computer Vision, Object Detection',
+  },
+  {
+    name: 'AI Model Training',
+    level: 80,
+    description: 'Machine Learning, Computer Vision',
+  },
+  {
+    name: 'FlutterFlow',
     level: 75,
-    description: '8 years',
+    description: 'Mobile App Development',
   },
   {
-    name: 'Devops',
-    level: 60,
-    description: '6 years',
+    name: '3D Printing',
+    level: 80,
+    description: 'Rapid Prototyping',
   },
   {
-    name: 'Cyber Security',
-    level: 50,
-    description: '5 years',
+    name: 'OnShape',
+    level: 75,
+    description: 'CAD Design, 3D Modeling',
+  },
+  {
+    name: 'TinkerCAD',
+    level: 80,
+    description: '3D Design, Prototyping',
+  },
+  {
+    name: 'Public Speaking',
+    level: 85,
+    description: 'Presentations, Pitching',
+  },
+  {
+    name: 'Leadership',
+    level: 90,
+    description: 'Team Management, Vision',
+  },
+  {
+    name: 'Collaboration',
+    level: 85,
+    description: 'Teamwork, Communication',
+  },
+  {
+    name: 'Project Management',
+    level: 85,
+    description: 'Planning, Execution',
   },
 ];
 

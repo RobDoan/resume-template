@@ -27,8 +27,8 @@ const Wrapper = styled(Box)(({ theme }) => ({
   width: '100%',
   height: '100%',
   background:
-    'linear-gradient(135deg, rgba(120, 204, 109, 0.6) 0%, rgba(120, 204, 109, 0.01) 100%)',
-  borderRadius: theme.spacing(1),
+    'linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%)',
+  borderRadius: theme.spacing(2),
   padding: theme.spacing(2, 0, 0, 2),
   display: 'flex',
   flexDirection: 'column',
@@ -38,11 +38,12 @@ const Wrapper = styled(Box)(({ theme }) => ({
 }));
 
 const ProfileContainer = styled(Box)(({ theme }) => ({
-  boxShadow: '10px 10px 15px rgba(0, 0, 0, 0.05)',
+  boxShadow: '0 10px 25px rgba(99, 102, 241, 0.1), 0 4px 12px rgba(0, 0, 0, 0.05)',
   flexGrow: 1,
   backgroundColor: theme.palette.common.white,
   display: 'flex',
   flexDirection: 'column',
+  borderRadius: theme.spacing(2),
 }));
 
 const NameAndRoleCover = styled(Box)(({ theme }) => ({
@@ -108,13 +109,16 @@ const ActionButton = styled(Button)(({ theme }) => ({
 }));
 
 const Profile = () => {
+  const onClickDownload = () => {
+    window.location.href = '/cv/resume-thien-huynh.pdf';
+  };
   return (
     <Wrapper>
       <ProfileContainer>
-        <StyledImage src="assets/images/profile.jpg" />
+        <StyledImage src="assets/images/thien-huynh.jpeg" />
         <NameAndRoleCover>
-          <StyledName>Quy Tran Doan</StyledName>
-          <StyledRole>Software Engineer</StyledRole>
+          <StyledName>Thien Huynh</StyledName>
+          <StyledRole>Engineering Student & Innovator</StyledRole>
         </NameAndRoleCover>
         <SocialLinks>
           <SocialLink
@@ -130,11 +134,6 @@ const Profile = () => {
           />
 
           <SocialLink
-            url="https://medium.com/@quydoantran"
-            target="_blank"
-            style={{ width: '36px', height: '36px' }}
-          />
-          <SocialLink
             url="/#skills"
             target="_blank"
             style={{ width: '36px', height: '36px' }}
@@ -142,7 +141,7 @@ const Profile = () => {
         </SocialLinks>
         <Box flexGrow={1} />
         <ActionsSection>
-          <ActionButton variant="text" fullWidth>
+          <ActionButton variant="text" fullWidth onClick={onClickDownload}>
             Download CV
           </ActionButton>
           <ActionButton variant="text" fullWidth href="/contact-me">

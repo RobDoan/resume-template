@@ -17,7 +17,7 @@ const BackgroundContainer = styled(Container, {
   bottom: 0,
   left: 0,
   right: 0,
-  background: 'linear-gradient(to bottom right, #50a3a2 0%, #78cc6d 100%)',
+  background: 'linear-gradient(to bottom right, #6366F1 0%, #10B981 100%)',
   zIndex: -1,
 }));
 

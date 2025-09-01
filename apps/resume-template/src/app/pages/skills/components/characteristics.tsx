@@ -3,20 +3,20 @@ import { FC } from 'react';
 import ApexCharts from 'react-apexcharts';
 
 const CharacterisExplained: Record<string, string> = {
-  Mentor: 'Mentoring junior developers, taking initiative in projects.',
-  Teamwork: 'Working well with others, being a team player.',
-  Testing: 'Unit testing, integration testing, end-to-end testing.',
-  Passionate: 'Passionate about computer science.',
+  Leadership: 'Leading Bin Genius project, taking initiative in STEM programs and school activities.',
+  Teamwork: 'Collaborating effectively in group projects, working well with startup clients at Kanovate.',
+  Communication: 'Strong public speaking skills, conducting podcast interviews, presenting at competitions.',
+  Innovation: 'Creating AI-powered solutions, developing creative approaches to real-world problems.',
   Adaptability:
-    'Willingness to learn new technologies and tools. Keeping up with new technologies',
-  Delivery:
-    'Planning, assessing risks, and delivering projects on time and within budget.',
+    'Thriving in diverse environments from Vietnam to USA to Canada, learning new technologies quickly.',
+  Resilience:
+    'Overcoming challenges of studying abroad at 13, managing academic and project demands.',
 };
 const CharacteristicsChartData = {
   series: [
     {
       name: 'Characteristics',
-      data: [8, 7, 9, 10, 10, 8],
+      data: [9, 9, 10, 9, 10, 9],
     },
   ],
   options: {
@@ -34,12 +34,12 @@ const CharacteristicsChartData = {
     },
     xaxis: {
       categories: [
-        'Mentor',
+        'Leadership',
         'Teamwork',
-        'Testing',
-        'Passionate',
+        'Communication',
+        'Innovation',
         'Adaptability',
-        'Delivery',
+        'Resilience',
       ],
       labels: {
         show: true,
