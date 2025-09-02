@@ -122,14 +122,9 @@ const Profile = () => {
           <StyledRole>Engineering Student & Innovator</StyledRole>
         </NameAndRoleCover>
         <SocialLinks>
-          <SocialLink
-            url="https://github.com/RobDoan"
-            target="_blank"
-            style={{ width: '36px', height: '36px' }}
-          />
 
           <SocialLink
-            url="https://www.linkedin.com/in/quy-doan-56516512/"
+            url="https://www.linkedin.com/in/sunny-huynh-38b194382"
             target="_blank"
             style={{ width: '36px', height: '36px' }}
           />
