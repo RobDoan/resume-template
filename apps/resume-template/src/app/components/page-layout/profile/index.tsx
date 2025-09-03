@@ -140,7 +140,7 @@ const Profile = () => {
           <ActionButton variant="text" fullWidth onClick={onClickDownload}>
             Download CV
           </ActionButton>
-          <ActionButton variant="text" fullWidth href="/contact-me">
+          <ActionButton variant="text" fullWidth href="#/contact-me">
             Contact Me
           </ActionButton>
         </ActionsSection>

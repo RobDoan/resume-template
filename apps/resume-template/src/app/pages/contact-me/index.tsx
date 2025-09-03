@@ -73,7 +73,7 @@ const ContactMe = () => {
             Let's Connect and Build Something Amazing Together
           </Typography>
 
-          <Typography variant="body1" sx={{ mb: 2, opacity: 0.9, maxWidth: 600 }}>
+          <Typography variant="body1" sx={{ mb: 2, opacity: 0.9 }}>
             I'm always excited to connect with fellow innovators, potential collaborators, and anyone
             interested in technology and engineering. Whether you have a project idea, want to discuss
             opportunities, or just want to chat about innovation, feel free to reach out!
