@@ -3,7 +3,7 @@ import PageCover from '../../components/page-layout/page-cover';
 import {
   SectionWrapper,
 } from '../../components/section';
-import { Grid, Box, Chip, Typography, styled, Card, CardContent } from '@mui/material';
+import { Grid, Box, Chip, Typography, styled, Card, CardContent, Link } from '@mui/material';
 import { motion } from 'framer-motion';
 
 // Modern styled components for better visual hierarchy
@@ -69,15 +69,26 @@ const StatCard = styled(Box)(({ theme }) => ({
   borderRadius: theme.spacing(2),
   background: theme.palette.background.paper,
   border: `1px solid ${theme.palette.grey[100]}`,
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  minHeight: '140px',
 }));
 
 
 const AboutMe = () => {
   const highlights = [
-    { icon: <Award size={20} />, title: "Bin Genius Founder", desc: "AI waste-sorting finalist" },
+    { icon: <Award size={20} />, title: "Bin Genius Founder", desc: "AI waste-sorting finalist", link: "https://www.bingenius.org/" },
     { icon: <BookOpen size={20} />, title: "IB Student", desc: "Year 2 at Churchill Secondary" },
     { icon: <MapPin size={20} />, title: "Global Experience", desc: "Vietnam → USA → Canada" },
   ];
+
+  const onStatCardClick = (link: string | undefined) => {
+    if (link) {
+      window.open(link, '_blank');
+    }
+  };
 
   return (
     <PageCover>
@@ -94,14 +105,34 @@ const AboutMe = () => {
               About Me
             </Typography>
           </Box>
-          
+
           <Grid container spacing={3} sx={{ mb: 4 }}>
-            {highlights.map((highlight, index) => (
-              <Grid item xs={12} md={4} key={index}>
-                <StatCard>
-                  <Box sx={{ color: 'primary.main', mb: 1 }}>{highlight.icon}</Box>
-                  <Typography variant="h6" sx={{ mb: 0.5 }}>{highlight.title}</Typography>
-                  <Typography variant="body2" color="text.secondary">{highlight.desc}</Typography>
+            {highlights.map((highlight) => (
+              <Grid item xs={12} md={4} key={highlight.title}>
+                <StatCard
+                  onClick={() => onStatCardClick(highlight?.link)}
+                  sx={{
+                    cursor: highlight.link ? 'pointer' : 'default',
+                    transition: 'all 0.3s ease',
+                    ...(highlight.link && {
+                      '&:hover': {
+                        transform: 'translateY(-2px)',
+                        boxShadow: '0 4px 16px rgba(99, 102, 241, 0.15)',
+                        borderColor: 'primary.main',
+                      }
+                    })
+                  }}
+                >
+                  <Box>
+                    <Box sx={{ color: 'primary.main', mb: 1 }}>{highlight.icon}</Box>
+                    <Typography variant="h6" sx={{ mb: 0.5 }}>{highlight.title}</Typography>
+                    <Typography variant="body2" color="text.secondary">{highlight.desc}</Typography>
+                  </Box>
+                  {highlight.link && (
+                    <Box sx={{ mt: 1, color: 'primary.main', fontSize: '1rem', opacity: 0.8, fontWeight: 500 }}>
+                      Click to visit →
+                    </Box>
+                  )}
                 </StatCard>
               </Grid>
             ))}
@@ -110,9 +141,9 @@ const AboutMe = () => {
           <Typography variant="h5" sx={{ mb: 3, fontWeight: 600, lineHeight: 1.4 }}>
             Engineering Student & Innovator from Vietnam, passionate about creating technology that makes a difference
           </Typography>
-          
+
           <Typography variant="body1" sx={{ mb: 2, opacity: 0.9 }}>
-            I'm <strong>Thien Huynh</strong>, a Year 2 IB student at Sir Winston Churchill Secondary School in Vancouver, BC. 
+            I'm <strong>Thien Huynh</strong>, a Year 2 IB student at Sir Winston Churchill Secondary School in Vancouver, BC.
             Empathetic, collaborative, and hands-on — these qualities define my approach to both academics and real-world challenges.
           </Typography>
         </HeroSection>
@@ -122,12 +153,12 @@ const AboutMe = () => {
       <SectionWrapper>
         <Box sx={{ mb: 4 }}>
           <Typography variant="h4" sx={{ mb: 3, fontWeight: 600 }}>My Journey</Typography>
-          
+
           <ModernCard sx={{ mb: 3 }}>
             <CardContent sx={{ p: 4 }}>
               <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.7 }}>
-                At 13, I left Vietnam to attend <strong>Perkiomen School in Pennsylvania</strong> on a full four-year scholarship. 
-                Living and studying abroad, far from family and friends, taught me to adapt and become independent in unknown environments — 
+                At 13, I left Vietnam to attend <strong>Perkiomen School in Pennsylvania</strong> on a full four-year scholarship.
+                Living and studying abroad, far from family and friends, taught me to adapt and become independent in unknown environments —
                 qualities fundamental to my academic and personal growth.
               </Typography>
             </CardContent>
@@ -136,11 +167,11 @@ const AboutMe = () => {
           <ModernCard sx={{ mb: 3 }}>
             <CardContent sx={{ p: 4 }}>
               <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.7 }}>
-                I've always been fascinated by mechanical systems. As a child, I studied how bicycles work — how components blend together 
+                I've always been fascinated by mechanical systems. As a child, I studied how bicycles work — how components blend together
                 when you push the pedal, how different bikes use different mechanics. This curiosity evolved into a passion to create.
               </Typography>
               <Typography variant="body1" sx={{ lineHeight: 1.7 }}>
-                With a friend, I founded <strong>Bin Genius</strong>, an AI-powered waste-sorting system that became a finalist at the 
+                With a friend, I founded <Link href="https://www.bingenius.org/" target="_blank" rel="noopener noreferrer" sx={{ fontWeight: 'bold', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Bin Genius</Link>, an AI-powered waste-sorting system that became a finalist at the
                 2024 Youth Innovation Showcase and was recognized by CBC news.
               </Typography>
             </CardContent>
@@ -149,12 +180,8 @@ const AboutMe = () => {
           <ModernCard>
             <CardContent sx={{ p: 4 }}>
               <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.7 }}>
-                Beyond academics, I'm an avid <strong>badminton player</strong>, competing in tournaments for my school team. 
+                Beyond academics, I'm an avid <strong>badminton player</strong>, competing in tournaments for my school team.
                 The sport connects me with peers and serves as my way to destress during intensive academic periods.
-              </Typography>
-              <Typography variant="body1" sx={{ lineHeight: 1.7 }}>
-                I'm drawn to the <strong>University of Toronto's Mechatronics Engineering</strong> program for its hands-on approach 
-                and co-op opportunities. I want to be part of a community committed to building technologies that make a difference.
               </Typography>
             </CardContent>
           </ModernCard>
@@ -180,14 +207,14 @@ const AboutMe = () => {
             },
             {
               period: "2023-2024",
-              location: "Vancouver, BC, Canada", 
+              location: "Vancouver, BC, Canada",
               school: "Gladstone Secondary School",
               program: "Grade 10"
             },
             {
               period: "2022-2023",
               location: "Pennsylvania, USA",
-              school: "Perkiomen School", 
+              school: "Perkiomen School",
               program: "Grade 9",
               note: "Full Four-Year Scholarship"
             },
@@ -205,7 +232,7 @@ const AboutMe = () => {
             }
           ].map((edu, index) => (
             <TimelineItem key={index}>
-              <ModernCard sx={{ 
+              <ModernCard sx={{
                 backgroundColor: edu.current ? 'primary.main' : 'background.paper',
                 color: edu.current ? 'white' : 'inherit',
                 '& .MuiChip-root': {
@@ -214,20 +241,20 @@ const AboutMe = () => {
               }}>
                 <CardContent sx={{ p: 3 }}>
                   <Box sx={{ display: 'flex', gap: 1, mb: 2, flexWrap: 'wrap' }}>
-                    <Chip 
+                    <Chip
                       icon={<Calendar size={14} />}
-                      label={edu.period} 
+                      label={edu.period}
                       size="small"
                       color={edu.current ? "secondary" : "primary"}
                     />
-                    <Chip 
+                    <Chip
                       icon={<MapPin size={14} />}
-                      label={edu.location} 
-                      size="small" 
+                      label={edu.location}
+                      size="small"
                       variant="outlined"
                     />
                   </Box>
-                  
+
                   <Typography variant="h6" sx={{ mb: 1, fontWeight: 600 }}>
                     {edu.school}
                   </Typography>
@@ -235,10 +262,10 @@ const AboutMe = () => {
                     {edu.program}
                   </Typography>
                   {edu.note && (
-                    <Typography variant="body2" sx={{ 
-                      opacity: 0.8, 
+                    <Typography variant="body2" sx={{
+                      opacity: 0.8,
                       fontStyle: 'italic',
-                      color: edu.current ? 'inherit' : 'text.secondary' 
+                      color: edu.current ? 'inherit' : 'text.secondary'
                     }}>
                       {edu.note}
                     </Typography>

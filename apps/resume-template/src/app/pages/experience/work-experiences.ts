@@ -7,7 +7,7 @@ const WorkExperiences: ExperienceTypes.Experience[] = [
     date: '2023 - Present',
     location: 'Vancouver, BC',
     expriences: [
-      `Led the development of "Bin Genius," an AI & IoT waste-sorting system designed to improve waste-sorting behavior through computer vision and IoT technology`,
+      `Led the development of "Bin Genius," an AI & IoT waste-sorting system designed to improve waste-sorting behavior through computer vision and IoT technology (see more at https://www.bingenius.org/)`,
       `This initiative involved designing the mechanical system, calibrating sensors, and developing the app interface, leading to the project's recognition as a finalist at the 2024 Youth Innovation Showcase`
     ],
   },

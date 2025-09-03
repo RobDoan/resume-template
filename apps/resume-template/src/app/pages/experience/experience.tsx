@@ -1,4 +1,3 @@
-import { Box, Chip, List, ListItem, Typography, styled } from '@mui/material';
 import { Briefcase } from 'react-feather';
 
 import PageCover from '../../components/page-layout/page-cover';
@@ -16,8 +15,8 @@ const Experience = () => {
       <SectionWrapper>
         <SectionTitle icon={<Briefcase size={35} />} title="Experience" />
         {
-          WorkExpreiences.map((item, index) => (
-            <WorkExperience key={index} exprience={item} />
+          WorkExpreiences.map((item) => (
+            <WorkExperience key={item.company} exprience={item} />
           ))
         }
       </SectionWrapper>
