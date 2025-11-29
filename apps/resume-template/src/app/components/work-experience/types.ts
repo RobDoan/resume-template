@@ -3,5 +3,5 @@ export interface Experience {
   position: string;
   date: string;
   location: string;
-  expriences: string[];
+  experiences: string[];
 }

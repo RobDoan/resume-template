@@ -6,7 +6,7 @@ const WorkExperiences: ExperienceTypes.Experience[] = [
     position: 'Founder',
     date: '2023 - Present',
     location: 'Vancouver, BC',
-    expriences: [
+    experiences: [
       `Led the development of "Bin Genius," an AI & IoT waste-sorting system designed to improve waste-sorting behavior through computer vision and IoT technology (see more at https://www.bingenius.org/)`,
       `This initiative involved designing the mechanical system, calibrating sensors, and developing the app interface, leading to the project's recognition as a finalist at the 2024 Youth Innovation Showcase`
     ],
@@ -17,7 +17,7 @@ const WorkExperiences: ExperienceTypes.Experience[] = [
     position: 'Product Design & Development Intern',
     date: 'June 2024 - Present',
     location: 'Vancouver, BC',
-    expriences: [
+    experiences: [
       `Contributed to the development of early-stage product prototypes`,
       `Assisted with mechanical design and applied tolerancing principles`,
       `Used OnShape and TinkerCAD to create and test 3D-printed models`,
@@ -30,7 +30,7 @@ const WorkExperiences: ExperienceTypes.Experience[] = [
     position: 'Podcast Interviewer & Producer Intern',
     date: 'August 2024 - Present',
     location: 'Vancouver, BC',
-    expriences: [
+    experiences: [
       `Conducted interviews with entrepreneurs and innovators for a digital podcast series`,
       `Researched guest backgrounds and prepared insightful, topic-specific questions`,
       `Assisted with post-production editing and publishing using podcast tools`,

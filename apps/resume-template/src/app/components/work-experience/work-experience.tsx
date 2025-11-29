@@ -43,27 +43,27 @@ const WorkingDuration = styled(Chip)(({ theme }) => ({
 }));
 
 type WorkExperienceProps = {
-  exprience: Experience;
+  experience: Experience;
 };
 
-const WorkExperience: FC<WorkExperienceProps> = ({ exprience }) => {
+const WorkExperience: FC<WorkExperienceProps> = ({ experience }) => {
   return (
     <SectionRow>
       <SectionCol>
         <PositionInfo>
           <StyledCompanyName variant="body1">
-            {exprience.company}
+            {experience.company}
           </StyledCompanyName>
 
-          <StyledJobTitle variant="body1">{exprience.position}</StyledJobTitle>
+          <StyledJobTitle variant="body1">{experience.position}</StyledJobTitle>
           <DurationLocationWrapper>
-            <WorkingDuration label={exprience.date} color={ /Present/.test(exprience.date) ? 'primary' : 'default' } />
+            <WorkingDuration label={experience.date} color={ /Present/.test(experience.date) ? 'primary' : 'default' } />
 
-            <Chip label={exprience.location} />
+            <Chip label={experience.location} />
           </DurationLocationWrapper>
         </PositionInfo>
         <ExperienceInfo>
-          {exprience.expriences.map((item, index) => (
+          {experience.experiences.map((item, index) => (
             <ListItem key={index} disableGutters>
               <Typography variant='body1'>{item}</Typography>
             </ListItem>

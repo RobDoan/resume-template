@@ -6,7 +6,7 @@ import {
   SectionWrapper,
 } from '../../components/section';
 
-import WorkExpreiences from './work-experiences';
+import WorkExperiences from './work-experiences';
 import { WorkExperience } from '../../components/work-experience';
 
 const Experience = () => {
@@ -15,8 +15,8 @@ const Experience = () => {
       <SectionWrapper>
         <SectionTitle icon={<Briefcase size={35} />} title="Experience" />
         {
-          WorkExpreiences.map((item) => (
-            <WorkExperience key={item.company} exprience={item} />
+          WorkExperiences.map((item) => (
+            <WorkExperience key={item.company} experience={item} />
           ))
         }
       </SectionWrapper>
