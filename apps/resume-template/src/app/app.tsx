@@ -13,6 +13,7 @@ import { theme } from './mui-theme';
 
 import MyProfile from './pages/my-profile';
 import ContactMe from './pages/contact-me';
+import Awards from './pages/awards';
 
 export function App() {
   const location = useLocation();
@@ -25,6 +26,7 @@ export function App() {
           <Route path="/experience" element={<Experience />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/about-me" element={<AboutMe />} />
+          <Route path="/awards" element={<Awards />} />
           <Route path="/contact-me" element={<ContactMe />} />
           <Route path="/" element={<MyProfile />} />
         </Routes>

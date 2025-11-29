@@ -1,6 +1,6 @@
 import { ListItem, List, styled, Typography } from '@mui/material';
 import { FC } from 'react';
-import { AtSign, Briefcase, Home, User, Zap } from 'react-feather';
+import { AtSign, Briefcase, Home, User, Zap, Award } from 'react-feather';
 import { Link, NavLink } from 'react-router-dom';
 
 const StyledList = styled(List)(({ theme }) => ({
@@ -83,6 +83,12 @@ const Menu: FC = () => {
         <StyledNavLink to="/experience">
           <Briefcase />
           <Typography variant="caption">Works</Typography>
+        </StyledNavLink>
+      </StyledMenuItem>
+      <StyledMenuItem>
+        <StyledNavLink to="/awards">
+          <Award />
+          <Typography variant="caption">Awards</Typography>
         </StyledNavLink>
       </StyledMenuItem>
       <StyledMenuItem>

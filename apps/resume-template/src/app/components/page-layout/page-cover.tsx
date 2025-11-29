@@ -56,7 +56,7 @@ const PageCover: FC<PropsWithChildren<PageCoverProps>> = ({
       }}
       transition={{ duration: 2, ease: 'easeInOut' }}
     >
-      <PageContentWrapper disablePadding={disablePadding}>
+      <PageContentWrapper disablePadding={disablePadding} data-testid="page-cover-wrapper">
         {children}
       </PageContentWrapper>
     </Wrapper>
