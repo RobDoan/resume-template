@@ -1,4 +1,5 @@
-import { Target, User, MapPin, Calendar, BookOpen, Award } from 'react-feather';
+import { User, MapPin, Calendar, BookOpen, Award } from 'react-feather';
+import { Route as JourneyIcon, GraduationCap } from 'lucide-react';
 import PageCover from '../../components/page-layout/page-cover';
 import {
   SectionWrapper,
@@ -149,49 +150,78 @@ const AboutMe = () => {
         </HeroSection>
       </motion.div>
 
-      {/* Story Section */}
+      {/* Story Section as Timeline */}
       <SectionWrapper>
         <Box sx={{ mb: 4 }}>
-          <Typography variant="h4" sx={{ mb: 3, fontWeight: 600 }}>My Journey</Typography>
+          <Box sx={{ display: 'flex', alignItems: 'center', mb: 4 }}>
+            <JourneyIcon size={28} style={{ marginRight: 12, color: '#10B981' }} />
+            <Typography variant="h4" sx={{ fontWeight: 600 }}>My Journey</Typography>
+          </Box>
 
-          <ModernCard sx={{ mb: 3 }}>
-            <CardContent sx={{ p: 4 }}>
-              <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.7 }}>
-                At 13, I left Vietnam to attend <strong>Perkiomen School in Pennsylvania</strong> on a full four-year scholarship.
-                Living and studying abroad, far from family and friends, taught me to adapt and become independent in unknown environments —
-                qualities fundamental to my academic and personal growth.
-              </Typography>
-            </CardContent>
-          </ModernCard>
-
-          <ModernCard sx={{ mb: 3 }}>
-            <CardContent sx={{ p: 4 }}>
-              <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.7 }}>
-                I've always been fascinated by mechanical systems. As a child, I studied how bicycles work — how components blend together
-                when you push the pedal, how different bikes use different mechanics. This curiosity evolved into a passion to create.
-              </Typography>
-              <Typography variant="body1" sx={{ lineHeight: 1.7 }}>
-                With a friend, I founded <Link href="https://www.bingenius.org/" target="_blank" rel="noopener noreferrer" sx={{ fontWeight: 'bold', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Bin Genius</Link>, an AI-powered waste-sorting system that became a finalist at the
-                2024 Youth Innovation Showcase and was recognized by CBC news.
-              </Typography>
-            </CardContent>
-          </ModernCard>
-
-          <ModernCard>
-            <CardContent sx={{ p: 4 }}>
-              <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.7 }}>
-                Beyond academics, I'm an avid <strong>badminton player</strong>, competing in tournaments for my school team.
-                The sport connects me with peers and serves as my way to destress during intensive academic periods.
-              </Typography>
-            </CardContent>
-          </ModernCard>
+          <Box sx={{ pl: 2 }}>
+            {[
+              {
+                period: 'Age 13 → Pennsylvania, USA',
+                title: 'Perkiomen School Scholarship',
+                details: (
+                  <>
+                    At 13, I left Vietnam to attend <strong>Perkiomen School in Pennsylvania</strong> on a full four-year scholarship.
+                    Living abroad taught me to adapt quickly and be independent—skills central to my academic and personal growth.
+                  </>
+                ),
+              },
+              {
+                period: 'Curiosity → Creation',
+                title: 'From Bicycles to Building',
+                details: (
+                  <>
+                    I've always been fascinated by mechanical systems. As a child, I studied how bicycles work — how components blend together when you push the pedal, how different bikes use different mechanics. This curiosity evolved into a passion to create.
+                  </>
+                ),
+              },
+              {
+                period: '2024',
+                title: 'Founded Bin Genius',
+                details: (
+                  <>
+                    Co-founded <Link href="https://www.bingenius.org/" target="_blank" rel="noopener noreferrer" sx={{ fontWeight: 'bold', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Bin Genius</Link>, an AI-powered waste-sorting system—finalist at the 2024 Youth Innovation Showcase, recognized by CBC.
+                  </>
+                ),
+              },
+              {
+                period: 'Ongoing',
+                title: 'Badminton & Balance',
+                details: (
+                  <>
+                    Competitive <strong>badminton</strong> helps me connect with peers and decompress during intensive academic periods, keeping performance sustainable.
+                  </>
+                ),
+              },
+            ].map((item, index) => (
+              <TimelineItem key={index}>
+                <ModernCard>
+                  <CardContent sx={{ p: 3 }}>
+                    <Box sx={{ display: 'flex', gap: 1, mb: 2, flexWrap: 'wrap' }}>
+                      <Chip label={item.period} size="small" color="primary" />
+                    </Box>
+                    <Typography variant="h6" sx={{ mb: 1, fontWeight: 600 }}>
+                      {item.title}
+                    </Typography>
+                    <Typography variant="body1" sx={{ lineHeight: 1.7 }}>
+                      {item.details}
+                    </Typography>
+                  </CardContent>
+                </ModernCard>
+              </TimelineItem>
+            ))}
+          </Box>
         </Box>
       </SectionWrapper>
 
       {/* Education Timeline */}
       <SectionWrapper>
         <Box sx={{ display: 'flex', alignItems: 'center', mb: 4 }}>
-          <Target size={28} style={{ marginRight: 12, color: '#10B981' }} />
+          <GraduationCap size={28} style={{ marginRight: 12, color: '#10B981' }} />
           <Typography variant="h4" sx={{ fontWeight: 600 }}>Education Timeline</Typography>
         </Box>
 

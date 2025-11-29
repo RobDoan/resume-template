@@ -14,12 +14,12 @@ const StyledIconWrapper = styled(Box)(({ theme }) => ({
 }));
 
 const StyledTitle = styled(Typography)(({ theme }) => ({
-  '&:first-letter': {
-    fontFamily: "satisfy",
-    fontSize: "38px",
-    textTransform: 'uppercase',
-    color: theme.palette.primary.main,
-  },
+  // '&:first-letter': {
+  //   fontFamily: "satisfy",
+  //   fontSize: "38px",
+  //   textTransform: 'uppercase',
+  //   color: theme.palette.primary.main,
+  // },
 }));
 
 interface TitleProps {
